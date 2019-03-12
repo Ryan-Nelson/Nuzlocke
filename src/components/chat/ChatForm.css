@@ -1,0 +1,18 @@
+.chatForm {
+    flex-wrap:wrap;
+    flex-direction: row ;
+    justify-content: space-around
+}
+
+.form-control {
+    width:50%
+}
+
+.chats{
+    overflow:scroll; height:200px;
+}
+
+#submitbutton{
+    width:100%;
+    color:red
+}
