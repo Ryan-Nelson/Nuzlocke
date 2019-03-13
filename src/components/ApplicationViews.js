@@ -2,15 +2,19 @@ import React, { Component } from "react"
 import { Route } from "react-router-dom"
 
 import PokemonManager from "../modules/PokemonManager"
-import PokemonForm from "./usersTeam/PokemonForm";
-import PokemonEditForm from "./usersTeam/PokemonEditForm";
+import PokemonCard from "./usersPokemon/PokemonCard"
+import PokemonDetail from "./usersPokemon/PokemonDetail"
+import PokemonList from "./usersPokemon/PokemonList"
+import PokemonForm from "./usersPokemon/PokemonForm";
+import PokemonEditForm from "./usersPokemon/PokemonEditForm";
 import TeamManager from "../modules/TeamManager"
 import TeamList from './usersTeam/TeamList'
 import TeamDetail from './usersTeam/TeamDetail'
 import TeamForm from './usersTeam/TeamForm';
 import TeamEditForm from './usersTeam/TeamEditForm';
+import TeamCard from "./usersTeam/TeamCard";
 
-class ApplicationViews extends Component {
+export default class ApplicationViews extends Component {
     state = {
         teams: [],
         pokemons: []
@@ -22,6 +26,11 @@ class ApplicationViews extends Component {
         TeamManager.delete(id)
             .then(TeamManager.getAll)
             .then(teams => this.setState({ teams: teams }))
+
+    deletePokemon = (id) =>
+        PokemonManager.delete(id)
+            .then(PokemonManager.getAll)
+            .then(pokemons => this.setState({ pokemons: pokemons }))
 
     addTeams = teams => {
         return TeamManager.addTeams(teams)
@@ -51,9 +60,21 @@ class ApplicationViews extends Component {
                 })
             )
     }
+    updatePokemon = pokemon => {
+        return PokemonManager.updatePokemon(pokemon)
+            .then(() => PokemonManager.getAll())
+            .then(pokemons =>
+                this.setState({
+                    pokemons: pokemons
+                })
+            )
+    }
 
     getAllTeamsAgain = () =>
         TeamManager.getAll().then(teams => this.setState({ teams: teams }))
+
+    getAllPokemonAgain = () =>
+        PokemonManager.getAll().then(pokemons => this.setState({ pokemons: pokemons }))
 
 
     componentDidMount() {
@@ -61,6 +82,9 @@ class ApplicationViews extends Component {
 
         TeamManager.getAll()
             .then(teams => newState.teams = teams)
+            .then(() => this.setState(newState))
+            PokemonManager.getAll()
+            .then(pokemons => newState.pokemons = pokemons)
             .then(() => this.setState(newState))
 
 
@@ -70,48 +94,75 @@ class ApplicationViews extends Component {
         console.log(this.props.activeUser)
         return (
             <React.Fragment>
-                <Route exact path="/teams" render={(props) => {
+                <Route exact path="/" render={(props) => {
                     return <TeamList teams={this.state.teams}
                         deleteThisTeam={this.deleteThisTeam}
                         loadTeams={this.getAllTeamsAgain}
                         {...props}
                     />
                 }} />
-                <Route exact path="/teams/:teamsId(\d+)" render={(props) => {
+                {/* <Route exact path="/teams" render={(props) => {
+                    return <TeamList teams={this.state.teams}
+                        deleteThisTeam={this.deleteThisTeam}
+                        loadTeams={this.getAllTeamsAgain}
+                        {...props}
+                    />
+                }} /> */}
+                <Route exact path="/:teamsId(\d+)" render={(props) => {
                     return <TeamDetail
                         {...props}
                         deleteThisTeam={this.deleteThisTeam}
                         teams={this.state.teams} />
                 }} />
-                <Route path="/teams/:teamsId(\d+)/edit" render={props => {
+                <Route path="/:teamsId(\d+)/edit" render={props => {
                     return <TeamEditForm
                         {...props}
-                        updateNews={this.updateNews} />
+                        updateTeams={this.updateTeams} />
                 }}
                 />
-                <Route path="/teams/new" render={(props) => {
+                <Route path="/new" render={(props) => {
                     return <TeamForm {...props}
                         addTeams={this.addTeams}
+                        addPokemon={this.addPokemon}
                     />
                 }} />
                 />
-                <Route path="/teams/new" render={(props) => {
+                <Route path="/new" render={(props) => {
+                    return <TeamCard {...props}
+                    pokemons={this.state.pokemons}
+                    deletePokemon={this.deletePokemon}
+                    loadPokemon={this.getAllPokemonsAgain}
+                    />
+                }} />
+                />
+                <Route path="/" render={(props) => {
+                    return <PokemonList pokemons={this.state.pokemons}
+                        deletePokemon={this.deletePokemon}
+                        loadPokemon={this.getAllPokemonsAgain}
+                        {...props}
+                    />
+                }} />
+                <Route exact path="/:pokemonsId(\d+)" render={(props) => {
+                    return <PokemonDetail
+                        {...props}
+                        deletePokemon={this.deletePokemon}
+                        pokemons={this.state.pokemons} />
+                }} />
+                <Route path="/:pokemonsId(\d+)/edit" render={props => {
+                    return <PokemonEditForm
+                        {...props}
+                        updatePokemon={this.updatePokemon} />
+                }}
+                />
+                <Route path="/new" render={(props) => {
                     return <PokemonForm {...props}
                         addPokemon={this.addPokemon}
                     />
                 }} />
                 />
+
             </React.Fragment>
         )
     }
 }
 
-
-
-
-
-
-
-
-
-export default ApplicationViews

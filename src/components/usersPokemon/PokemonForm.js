@@ -42,7 +42,7 @@ export default class PokemonForm extends Component {
       // Create the animal and redirect user to animal list
       this.props
         .addPokemon(pokemon)
-        .then(() => this.props.history.push("/teams"));
+        .then(() => this.props.history.push("/"));
     }
   
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TeamCard from './TeamCard';
 
-class TeamList extends Component {
+export default class TeamList extends Component {
 
     render() {
 
@@ -11,7 +11,7 @@ class TeamList extends Component {
                 <button type="button"
                         className="btn btn-success"
                         onClick={() => {
-                            this.props.history.push("/teams/new")}
+                            this.props.history.push("/new")}
                         }>
                     Make New Team
                 </button>
@@ -36,5 +36,3 @@ class TeamList extends Component {
         )
     }
 }
-
-export default TeamList

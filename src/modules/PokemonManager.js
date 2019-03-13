@@ -2,36 +2,32 @@ import Settings from "./Settings";
 
 export default {
     get(id) {
-        return fetch(`${Settings.remoteURL}/news/${id}`).then(e => e.json());
+        return fetch(`${Settings.remoteURL}/pokemons/${id}`).then(e => e.json());
     },
     delete(id) {
-        return fetch(`${Settings.remoteURL}/news/${id}`, {
+        return fetch(`${Settings.remoteURL}/pokemons/${id}`, {
             "method": "DELETE"
         }).then(e => e.json());
     },
     getAll() {
-        return fetch(`${Settings.remoteURL}/news`).then(e => e.json());
+        return fetch(`${Settings.remoteURL}/pokemons`).then(e => e.json());
     },
-    addNews(newNews) {
-        return fetch(`${Settings.remoteURL}/news`, {
+    addPokemon(newPokemon) {
+        return fetch(`${Settings.remoteURL}/pokemons`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(newNews)
+          body: JSON.stringify(newPokemon)
         }).then(data => data.json())
     },
-    // getSessionStorage{
-
-    // }
-    // sessionStorage.setItem("credentials", parseInt(user.id))
-    updateNews(editedNews) {
-        return fetch(`${Settings.remoteURL}/news/${editedNews.id}`, {
+    updatePokemon(editedPokemon) {
+        return fetch(`${Settings.remoteURL}/pokemons/${editedPokemon.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(editedNews)
+          body: JSON.stringify(editedPokemon)
         }).then(data => data.json());
     }
 };

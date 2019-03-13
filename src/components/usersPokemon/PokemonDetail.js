@@ -23,7 +23,7 @@ export default class Team extends Component {
                         <button
                             onClick={() =>
                                 this.props.deleteThisTeam(team.id)
-                                    .then(() => this.props.history.push("/teams"))
+                                    .then(() => this.props.history.push("/"))
                             }
                             className="card-link">Delete Your Team</button>
                     </div>

@@ -31,7 +31,7 @@ export default class TeamEditForm extends Component {
         };
 
         this.props.updateTeam(editedTeam)
-            .then(() => this.props.history.push("/teams"))
+            .then(() => this.props.history.push("/"))
     }
   
 
@@ -76,13 +76,13 @@ export default class TeamEditForm extends Component {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="teamLoes">team loes</label>
+              <label htmlFor="teamLose">team loes</label>
               <input
                 type="text"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="teamLoes"
+                id="teamLose"
                 value = {this.state.teamLose}
               />
             </div>

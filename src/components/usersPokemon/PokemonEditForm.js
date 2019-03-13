@@ -37,7 +37,7 @@ export default class TeamEditForm extends Component {
         };
 
         this.props.updatePokemon(editedPokemon)
-            .then(() => this.props.history.push("/teams"))
+            .then(() => this.props.history.push("/"))
     }
   
 
