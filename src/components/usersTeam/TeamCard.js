@@ -24,15 +24,15 @@ export default class TeamCard extends Component {
                                     />
                                 )}
                                 </article>
-{/*                                 
+                                
                             <div>{this.props.team.win}</div>
                             <div>{this.props.team.lose}</div>
-                            <div>{this.props.team.discretion}</div> */}
+                            <div>{this.props.team.discretion}</div>
                             <button
                                 type="button"
                                 className="btn btn-success"
                                 onClick={() => {
-                                    this.props.history.push(`/teams/${this.props.team.id}/edit`);
+                                    this.props.history.push(`/${this.props.team.id}/edit`);
                                 }}
                             >
                                 Edit

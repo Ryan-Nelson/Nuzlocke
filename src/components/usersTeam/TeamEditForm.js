@@ -22,7 +22,7 @@ export default class TeamEditForm extends Component {
       evt.preventDefault()
 
         const editedTeam = {
-          id: this.props.match.params.Id,
+          id: parseInt(this.props.match.params.teamsId),
           name: this.state.teamName,
           win: this.state.teamWin,
           loes: this.state.teamLose,
@@ -39,6 +39,7 @@ export default class TeamEditForm extends Component {
       TeamManager.get(this.props.match.params.id)
       .then(team => {
         this.setState({
+
           teamName: team.name,
           win: team.win,
           loes: team.loes,

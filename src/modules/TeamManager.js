@@ -21,13 +21,13 @@ export default {
           body: JSON.stringify(newTeam)
         }).then(data => data.json())
     },
-    updateNews(editedNews) {
-        return fetch(`${Settings.remoteURL}/news/${editedNews.id}`, {
+    updateTeam(editedTeam) {
+        return fetch(`${Settings.remoteURL}/teams/${editedTeam.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(editedNews)
+          body: JSON.stringify(editedTeam)
         }).then(data => data.json());
     }
 };

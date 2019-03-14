@@ -51,8 +51,8 @@ export default class ApplicationViews extends Component {
             )
     }
 
-    updateTeams = team => {
-        return TeamManager.updateTeams(team)
+    updateTeam = team => {
+        return TeamManager.updateTeam(team)
             .then(() => TeamManager.getAll())
             .then(teams =>
                 this.setState({
@@ -114,7 +114,7 @@ export default class ApplicationViews extends Component {
                 <Route path="/:teamsId(\d+)/edit" render={props => {
                     return <TeamEditForm
                         {...props}
-                        updateTeams={this.updateTeams} />
+                        updateTeam={this.updateTeam} />
                 }}
                 />
                 <Route path="/newTeam" render={(props) => {
@@ -137,7 +137,7 @@ export default class ApplicationViews extends Component {
                         deletePokemon={this.deletePokemon}
                         pokemons={this.state.pokemons} />
                 }} />
-                <Route path="/:pokemonsId(\d+)/edit" render={props => {
+                <Route path="/newPokemon/:pokemonsId(\d+)/edit" render={props => {
                     return <PokemonEditForm
                         {...props}
                         updatePokemon={this.updatePokemon} />
