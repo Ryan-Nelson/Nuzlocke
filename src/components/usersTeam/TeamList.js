@@ -11,7 +11,7 @@ export default class TeamList extends Component {
                 <button type="button"
                         className="btn btn-success"
                         onClick={() => {
-                            this.props.history.push("/new")}
+                            this.props.history.push("/newTeam")}
                         }>
                     Make New Team
                 </button>

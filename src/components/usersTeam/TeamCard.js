@@ -18,7 +18,6 @@ export default class TeamCard extends Component {
                                     this.props.pokemons.map(pokemon =>
                                     <PokemonCard key={`pokemon-${pokemon.id}`}
                                         pokemon={pokemon}
-                                        deletePokemon={this.props.deletePokemon}
                                         history={this.props.history}
                                     />
                                 )}
@@ -47,7 +46,7 @@ export default class TeamCard extends Component {
 
                         </h5>
                     </div>
-                    <Link className="nav-link" to={`/teams/${this.props.team.id}`}>Details</Link>
+                    <Link className="nav-link" to={`/${this.props.team.id}`}>Details</Link>
                 </div>
 
             </React.Fragment>

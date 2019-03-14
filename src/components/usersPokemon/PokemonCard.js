@@ -39,7 +39,7 @@ export default class PokemonCard extends Component {
 
                         </h5>
                     </div>
-                    <Link className="nav-link" to={`/${this.props.pokemon.id}`}>Details</Link>
+                    <Link className="nav-link" to={`/pokemon${this.props.pokemon.id}`}>Details</Link>
                 </div>
 
             </React.Fragment>

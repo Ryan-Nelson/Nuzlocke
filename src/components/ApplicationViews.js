@@ -103,14 +103,6 @@ export default class ApplicationViews extends Component {
                         {...props}
                     />
                 }} />
-                {/* <Route exact path="/teams" render={(props) => {
-                    return <TeamList teams={this.state.teams}
-                        deleteThisTeam={this.deleteThisTeam}
-                        loadTeams={this.getAllTeamsAgain}
-                        pokemons={this.state.pokemons}
-                        {...props}
-                    />
-                }} /> */}
                 <Route exact path="/:teamsId(\d+)" render={(props) => {
                     return <TeamDetail
                         {...props}
@@ -123,21 +115,13 @@ export default class ApplicationViews extends Component {
                         updateTeams={this.updateTeams} />
                 }}
                 />
-                <Route path="/new" render={(props) => {
+                <Route path="/newTeam" render={(props) => {
                     return <TeamForm {...props}
                         addTeams={this.addTeams}
                         addPokemon={this.addPokemon}
                     />
                 }} />
                 />
-                {/* <Route path="/new" render={(props) => {
-                    return <TeamCard {...props}
-                    pokemons={this.state.pokemons}
-                    deletePokemon={this.deletePokemon}
-                    loadPokemon={this.getAllPokemonsAgain}
-                    />
-                }} />
-                /> */}
                 <Route path="/pokemonList" render={(props) => {
                     return <PokemonList pokemons={this.state.pokemons}
                         deletePokemon={this.deletePokemon}
@@ -145,7 +129,7 @@ export default class ApplicationViews extends Component {
                         {...props}
                     />
                 }} />
-                <Route exact path="/:pokemonsId(\d+)" render={(props) => {
+                <Route exact path="/pokemon:pokemonsId(\d+)" render={(props) => {
                     return <PokemonDetail
                         {...props}
                         deletePokemon={this.deletePokemon}
