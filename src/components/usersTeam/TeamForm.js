@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TeamManager from "../../modules/TeamManager"
 
 export default class TeamForm extends Component {
   // Set initial state
@@ -38,6 +39,19 @@ export default class TeamForm extends Component {
         .addTeams(team)
         .then(() => this.props.history.push("/"));
     }
+
+    componentDidMount() {
+      TeamManager.get(this.props.match.params.teamId)
+      .then(team => {
+        this.setState({
+          teamName: team.name,
+          teamWin: team.win,
+          teamLose: team.loes,
+          teamDiscretion: team.discretion
+        });
+      });
+    }
+
   
 
   render() {

@@ -10,8 +10,8 @@ export default class TeamDetail extends Component {
             user clicked on by looking at the `this.props.animals`
             collection that was passed down from ApplicationViews
         */
-        const team = this.props.teams.find(a =>
-            a.id === parseInt(this.props.match.params.teamId))
+        const team = this.props.teams.find(team =>
+            team.id === parseInt(this.props.match.params.teamsId))
              || {id:404, name:"404", discretion: "Dog not found"}
 
         return (
