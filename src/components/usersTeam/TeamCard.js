@@ -13,20 +13,17 @@ export default class TeamCard extends Component {
                     <div className="card-body">
                         <h5 className="card-title">
                             <div>{this.props.team.name}</div>
-                                {/* <div key={this.props.pokemons.id} className="pokemonCards"> */}
                                 <article className="pokemons">
-                                <div>{this.pokemons.name}</div>
                                     {
-                                this.props.pokemons.map(pokemons =>
-                                    <PokemonCard key={`pokemon-${pokemons.id}`}
-                                        pokemons={pokemons}
+                                    this.props.pokemons.map(pokemon =>
+                                    <PokemonCard key={`pokemon-${pokemon.id}`}
+                                        pokemon={pokemon}
                                         deletePokemon={this.props.deletePokemon}
                                         history={this.props.history}
                                     />
-                                )
-                                    }
+                                )}
                                 </article>
-                                {/* </div> */}
+                                
                             <div>{this.props.team.win}</div>
                             <div>{this.props.team.lose}</div>
                             <div>{this.props.team.discretion}</div>

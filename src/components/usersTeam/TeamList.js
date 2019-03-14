@@ -21,6 +21,7 @@ export default class TeamList extends Component {
                     this.props.teams.map(team =>
                         <TeamCard key={`team-${team.id}`}
                             team={team}
+                            pokemons={this.props.pokemons}
                             deleteThisTeam={this.props.deleteThisTeam}
                             history={this.props.history}
                             />

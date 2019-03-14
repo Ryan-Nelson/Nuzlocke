@@ -98,6 +98,8 @@ export default class ApplicationViews extends Component {
                     return <TeamList teams={this.state.teams}
                         deleteThisTeam={this.deleteThisTeam}
                         loadTeams={this.getAllTeamsAgain}
+                        pokemons={this.state.pokemons}
+
                         {...props}
                     />
                 }} />
@@ -105,6 +107,7 @@ export default class ApplicationViews extends Component {
                     return <TeamList teams={this.state.teams}
                         deleteThisTeam={this.deleteThisTeam}
                         loadTeams={this.getAllTeamsAgain}
+                        pokemons={this.state.pokemons}
                         {...props}
                     />
                 }} /> */}
@@ -127,15 +130,15 @@ export default class ApplicationViews extends Component {
                     />
                 }} />
                 />
-                <Route path="/new" render={(props) => {
+                {/* <Route path="/new" render={(props) => {
                     return <TeamCard {...props}
                     pokemons={this.state.pokemons}
                     deletePokemon={this.deletePokemon}
                     loadPokemon={this.getAllPokemonsAgain}
                     />
                 }} />
-                />
-                <Route path="/" render={(props) => {
+                /> */}
+                <Route path="/pokemonList" render={(props) => {
                     return <PokemonList pokemons={this.state.pokemons}
                         deletePokemon={this.deletePokemon}
                         loadPokemon={this.getAllPokemonsAgain}
@@ -154,7 +157,7 @@ export default class ApplicationViews extends Component {
                         updatePokemon={this.updatePokemon} />
                 }}
                 />
-                <Route path="/new" render={(props) => {
+                <Route path="/newPokemon" render={(props) => {
                     return <PokemonForm {...props}
                         addPokemon={this.addPokemon}
                     />
