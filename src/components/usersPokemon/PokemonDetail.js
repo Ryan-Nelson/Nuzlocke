@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 
-export default class Team extends Component {
+export default class PokemonDetail extends Component {
     render() {
         /*
             Using the route parameter, find the animal that the
