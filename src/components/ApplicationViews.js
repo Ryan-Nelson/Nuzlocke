@@ -107,7 +107,9 @@ export default class ApplicationViews extends Component {
                     return <TeamDetail
                         {...props}
                         deleteThisTeam={this.deleteThisTeam}
+                        pokemons={this.state.pokemons}
                         teams={this.state.teams} />
+                        
                 }} />
                 <Route path="/:teamsId(\d+)/edit" render={props => {
                     return <TeamEditForm

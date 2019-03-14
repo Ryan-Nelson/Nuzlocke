@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 
+import PokemonCard from "../usersPokemon/PokemonCard"
+
 
 export default class TeamDetail extends Component {
     render() {
@@ -18,8 +20,20 @@ export default class TeamDetail extends Component {
                     <div className="card-body">
                         <h4 className="card-title">
                             {team.name}
+                                <article className="pokemons">
+                                    {
+                                    this.props.pokemons.map(pokemon =>
+                                    <PokemonCard key={`pokemon-${pokemon.id}`}
+                                        pokemon={pokemon}
+                                        history={this.props.history}
+                                    />
+                                )}
+                                </article>
+                                
+                            <div>{team.win}</div>
+                            <div>{team.lose}</div>
+                            <div>{team.discretion}</div>
                         </h4>
-                        <h6 className="card-title">{team.breed}</h6>
                         <button
                             onClick={() =>
                                 this.props.deleteThisTeam(team.id)
