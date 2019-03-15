@@ -32,7 +32,7 @@ export default class TeamCard extends Component {
                                 type="button"
                                 className="btn btn-success"
                                 onClick={() => {
-                                    this.props.history.push(`/${this.props.team.id}/edit`);
+                                    this.props.history.push(`/pokemon${this.props.team.id}/edit`);
                                 }}
                             >
                                 Edit

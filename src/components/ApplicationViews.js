@@ -137,7 +137,7 @@ export default class ApplicationViews extends Component {
                         deletePokemon={this.deletePokemon}
                         pokemons={this.state.pokemons} />
                 }} />
-                <Route path="/newPokemon/:pokemonsId(\d+)/edit" render={props => {
+                <Route path="/pokemon/:pokemonsId(\d+)/edit" render={props => {
                     return <PokemonEditForm
                         {...props}
                         updatePokemon={this.updatePokemon} />

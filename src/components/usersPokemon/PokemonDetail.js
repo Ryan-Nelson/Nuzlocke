@@ -8,24 +8,31 @@ export default class PokemonDetail extends Component {
             user clicked on by looking at the `this.props.animals`
             collection that was passed down from ApplicationViews
         */
-        const team = this.props.teams.find(a =>
-            a.id === parseInt(this.props.match.params.teamId))
-             || {id:404, name:"404", discretion: "Dog not found"}
-
+        const pokemon = this.props.pokemons.find(p =>
+            p.id === parseInt(this.props.match.params.pokemonId))
+             || {id:404, name:"404", nickName: "Dog not found"}
+    
         return (
             <section className="team">
-                <div key={team.id} className="card">
+                <div key={pokemon.id} className="card">
                     <div className="card-body">
                         <h4 className="card-title">
-                            {team.name}
-                        </h4>
-                        <h6 className="card-title">{team.breed}</h6>
+                            {pokemon.nickName}
+                        </h4> 
+                        <h6 className="card-title">{pokemon.name}</h6>
+                        <h4 className="card-title">{pokemon.level}</h4>
+                        <h4 className="card-title">{pokemon.attack}</h4>
+                        <h4 className="card-title">{pokemon.defence}</h4>
+                        <h4 className="card-title">{pokemon.specialAttack}</h4>
+                        <h4 className="card-title">{pokemon.specialDefense}</h4>
+                        <h4 className="card-title">{pokemon.speed}</h4>
+
                         <button
                             onClick={() =>
-                                this.props.deleteThisTeam(team.id)
+                                this.props.deletePokemon(pokemon.id)
                                     .then(() => this.props.history.push("/"))
                             }
-                            className="card-link">Delete Your Team</button>
+                            className="card-link">Delete Your Pokemon</button>
                     </div>
                 </div>
             </section>

@@ -11,7 +11,9 @@ export default class TeamEditForm extends Component {
       pokemonDefence: "",
       pokemonSpecialAttack: "",
       pokemonSpecialDefense: "",
-      pokemonSpeed: ""
+      pokemonSpeed: "",
+      userId: ""
+
     }
 
 
@@ -33,11 +35,12 @@ export default class TeamEditForm extends Component {
           defence: this.state.pokemonDefence,
           specialAttack: this.state.pokemonSpecialAttack,
           specialDefense: this.state.pokemonSpecialDefense,
-          speed: this.state.pokemonSpeed
+          speed: this.state.pokemonSpeed,
+          userId: this.state.userId
         };
 
         this.props.updatePokemon(editedPokemon)
-            .then(() => this.props.history.push("/"))
+            .then(() => this.props.history.push("/pokemons"))
     }
   
 
