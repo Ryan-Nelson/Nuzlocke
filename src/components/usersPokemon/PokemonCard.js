@@ -23,7 +23,7 @@ export default class PokemonCard extends Component {
                                 type="button"
                                 className="btn btn-success"
                                 onClick={() => {
-                                    this.props.history.push(`/${this.props.pokemon.id}/edit`);
+                                    this.props.history.push(`/newPokemon/${this.props.pokemon.id}/edit`);
                                 }}
                                 >
                                 Edit
