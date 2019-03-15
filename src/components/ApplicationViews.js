@@ -41,8 +41,8 @@ export default class ApplicationViews extends Component {
                 })
             )
     }
-    addPokemon = pokemon => {
-        return PokemonManager.addPokemon(pokemon)
+    addPokemons = pokemons => {
+        return PokemonManager.addPokemons(pokemons)
             .then(() => PokemonManager.getAll())
             .then(pokemons =>
                 this.setState({
@@ -145,7 +145,7 @@ export default class ApplicationViews extends Component {
                 />
                 <Route path="/newPokemon" render={(props) => {
                     return <PokemonForm {...props}
-                        addPokemon={this.addPokemon}
+                        addPokemons={this.addPokemons}
                     />
                 }} />
                 />

@@ -19,7 +19,7 @@ export default class PokemonList extends Component {
     </div>
     <article className="pokemons">
         {
-    this.props.pokemon.map(pokemon =>
+    this.props.pokemons.map(pokemon =>
         <PokemonCard key={`pokemon-${pokemon.id}`}
             pokemon={pokemon}
             deletePokemon={this.props.deletePokemon}

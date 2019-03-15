@@ -11,7 +11,8 @@ export default class PokemonForm extends Component {
     pokemonDefence: "",
     pokemonSpecialAttack: "",
     pokemonSpecialDefense: "",
-    pokemonSpeed: ""
+    pokemonSpeed: "",
+    userId: ""
   };
 
   // Update state whenever an input field is edited
@@ -40,12 +41,13 @@ export default class PokemonForm extends Component {
         defence: this.state.pokemonDefence,
         specialAttack: this.state.pokemonSpecialAttack,
         specialDefense: this.state.pokemonSpecialDefense,
-        speed: this.state.pokemonSpeed
+        speed: this.state.pokemonSpeed,
+        userId:parseInt(sessionStorage.getItem('credentials'))
       }
 
       // Create the animal and redirect user to animal list
       this.props
-        .addPokemon(pokemon)
+        .addPokemons(pokemon)
         .then(() => this.props.history.push("/pokemonList"));
     }
   }

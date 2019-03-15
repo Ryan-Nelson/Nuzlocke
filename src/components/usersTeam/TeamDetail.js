@@ -12,7 +12,7 @@ export default class TeamDetail extends Component {
         */
         const team = this.props.teams.find(team =>
             team.id === parseInt(this.props.match.params.teamsId))
-             || {id:404, name:"404", discretion: "Dog not found"}
+            || { id: 404, name: "404", discretion: "Dog not found" }
 
         return (
             <section className="team">
@@ -20,16 +20,26 @@ export default class TeamDetail extends Component {
                     <div className="card-body">
                         <h4 className="card-title">
                             {team.name}
-                                <article className="pokemons">
-                                    {
+                            <article className="pokemons">
+                                {
                                     this.props.pokemons.map(pokemon =>
-                                    <PokemonCard key={`pokemon-${pokemon.id}`}
-                                        pokemon={pokemon}
-                                        history={this.props.history}
-                                    />
-                                )}
-                                </article>
-                                
+                                        <PokemonCard key={`pokemon-${pokemon.id}`}
+                                            pokemon={pokemon}
+                                            history={this.props.history}
+                                        />
+                                    )}
+                                <div className="centerChildren">
+                                    <button type="button"
+                                        className="btn btn-success"
+                                        onClick={() => {
+                                            this.props.history.push("/newPokemon")
+                                        }
+                                        }>
+                                        Add New Pokemon
+                                    </button>
+                                </div>
+                            </article>
+
                             <div>{team.win}</div>
                             <div>{team.lose}</div>
                             <div>{team.discretion}</div>

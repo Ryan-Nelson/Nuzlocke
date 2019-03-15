@@ -12,7 +12,7 @@ export default {
     getAll() {
         return fetch(`${Settings.remoteURL}/pokemons`).then(e => e.json());
     },
-    addPokemon(newPokemon) {
+    addPokemons(newPokemon) {
         return fetch(`${Settings.remoteURL}/pokemons`, {
           method: "POST",
           headers: {
