@@ -8,6 +8,7 @@ export default class TeamList extends Component {
         return (
             <React.Fragment>
             <div className="centerChildren">
+            {/* new team button */}
                 <button type="button"
                         className="btn btn-success"
                         onClick={() => {
@@ -29,6 +30,7 @@ export default class TeamList extends Component {
                 }
             </article>
             <div className="centerChildren">
+            {/* button to refresh the teams */}
                 <button onClick={ () => this.props.loadTeams() }>
                     Reload Teams
                 </button>

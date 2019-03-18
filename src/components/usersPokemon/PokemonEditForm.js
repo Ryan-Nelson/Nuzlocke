@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PokemonManager from "../../modules/TeamManager"
 
-export default class TeamEditForm extends Component {
+export default class PokemonEditForm extends Component {
     // Set initial state
     state = {
       pokemonName: "",
@@ -40,12 +40,12 @@ export default class TeamEditForm extends Component {
         };
 
         this.props.updatePokemon(editedPokemon)
-            .then(() => this.props.history.push("/pokemons"))
+            .then(() => this.props.history.push("/pokemon"))
     }
   
 
     componentDidMount() {
-      PokemonManager.get(this.props.match.params.pokemonId)
+      PokemonManager.get(this.props.match.params.id)
       .then(pokemon => {
         this.setState({
           pokemonName: pokemon.name,
@@ -156,7 +156,7 @@ export default class TeamEditForm extends Component {
             </div>
             <button
               type="submit"
-              onClick={this.updateExistingTeam}
+              onClick={this.updateExistingPokemon}
               className="btn btn-primary"
             >
               Submit

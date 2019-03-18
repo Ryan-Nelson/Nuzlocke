@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TeamManager from "../../modules/TeamManager"
 
 export default class TeamForm extends Component {
-  // Set initial state
+  // Set initial state for teams
   state = {
     teamName: "",
     teamWin: "",
@@ -18,13 +18,10 @@ export default class TeamForm extends Component {
     this.setState(stateToChange);
   }
 
-  /*
-        Local method for validation, creating animal object, and
-        invoking the function reference passed from parent component
-     */
+
   constructNewTeam = evt => {
     evt.preventDefault()
-
+      // set the props to team
       const team = {
         id: this.props.match.params.teamId,
         name: this.state.teamName,
@@ -34,12 +31,13 @@ export default class TeamForm extends Component {
         userId:parseInt(sessionStorage.getItem('credentials'))
       }
 
-      // Create the animal and redirect user to animal list
+      // Create the team and redirect user to team list
       this.props
         .addTeams(team)
         .then(() => this.props.history.push("/"));
     }
 
+    // checks to see if team list is display
     componentDidMount() {
       TeamManager.get(this.props.match.params.teamId)
       .then(team => {
@@ -57,6 +55,7 @@ export default class TeamForm extends Component {
   render() {
     return (
       <React.Fragment>
+        {/* the teams form */}
         <form className="teamForm">
         <div className="form-group">
               <label htmlFor="teamName">Team name</label>
