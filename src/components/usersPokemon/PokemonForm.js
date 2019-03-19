@@ -12,7 +12,8 @@ export default class PokemonForm extends Component {
     pokemonSpecialAttack: "",
     pokemonSpecialDefense: "",
     pokemonSpeed: "",
-    userId: ""
+    userId: "",
+    pokemonTeamId: ""
   };
 
   // Update state whenever an input field is edited
@@ -42,8 +43,10 @@ export default class PokemonForm extends Component {
         specialAttack: this.state.pokemonSpecialAttack,
         specialDefense: this.state.pokemonSpecialDefense,
         speed: this.state.pokemonSpeed,
-        userId:parseInt(sessionStorage.getItem('credentials'))
+        userId:parseInt(sessionStorage.getItem('credentials')),
+        pokemonTeamId: parseInt(this.state.pokemonTeamId)
       }
+      
 
       // Create the animal and redirect user to animal list
       this.props
@@ -145,6 +148,22 @@ export default class PokemonForm extends Component {
                 value = {this.state.pokemonSpeed}
               />
             </div>
+            <div className="form-group">
+            <label htmlFor="pokemonTeamId">Assign to a Team</label>
+            <select
+              defaultValue=""
+              name="Team"
+              id="pokemonTeamId"
+              onChange={this.handleFieldChange}
+            >
+              <option value="">Select a Team</option>
+              {this.props.teams.map(team => (
+                <option key={team.id} id={team.id} value={team.id}>
+                  {team.name}
+                </option>
+              ))}
+            </select>
+          </div>
           <button
             type="submit"
             onClick={this.constructNewTeam}

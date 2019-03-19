@@ -12,7 +12,8 @@ export default class PokemonEditForm extends Component {
       pokemonSpecialAttack: "",
       pokemonSpecialDefense: "",
       pokemonSpeed: "",
-      userId: ""
+      userId: "",
+      okemonTeamId: ""
 
     }
 
@@ -36,7 +37,8 @@ export default class PokemonEditForm extends Component {
           specialAttack: this.state.pokemonSpecialAttack,
           specialDefense: this.state.pokemonSpecialDefense,
           speed: this.state.pokemonSpeed,
-          userId: this.state.userId
+          userId: this.state.userId,
+          pokemonTeamId: parseInt(this.props.match.params.pokemonTeamId)
         };
 
         this.props.updatePokemon(editedPokemon)
@@ -55,7 +57,8 @@ export default class PokemonEditForm extends Component {
           pokemonDefence: pokemon.defence,
           pokemonSpecialAttack: pokemon.specialAttack,
           pokemonSpecialDefense: pokemon.specialDefense,
-          pokemonSpeed: pokemon.speed
+          pokemonSpeed: pokemon.speed,
+          pokemonTeamId: pokemon.pokemonTeamId
         });
       });
     }
@@ -154,6 +157,22 @@ export default class PokemonEditForm extends Component {
                 value = {this.state.pokemonSpeed}
               />
             </div>
+            <div className="form-group">
+            <label htmlFor="pokemonTeamId">Assign to a Team</label>
+            <select
+              defaultValue=""
+              name="Team"
+              id="pokemonTeamId"
+              onChange={this.handleFieldChange}
+            >
+              <option value="">Select an Team</option>
+              {this.props.teams.map(team => (
+                <option key={team.id} id={team.id} value={team.id}>
+                  {team.name}
+                </option>
+              ))}
+            </select>
+          </div>
             <button
               type="submit"
               onClick={this.updateExistingPokemon}

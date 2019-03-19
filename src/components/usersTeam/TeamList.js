@@ -25,6 +25,7 @@ export default class TeamList extends Component {
                             pokemons={this.props.pokemons}
                             deleteThisTeam={this.props.deleteThisTeam}
                             history={this.props.history}
+                            pokemonOnTeam={this.props.pokemonOnTeam}
                             />
                     )
                 }

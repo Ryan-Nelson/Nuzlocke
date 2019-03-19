@@ -17,10 +17,12 @@ export default class TeamCard extends Component {
                             <div>{this.props.team.name}</div>
                                 <article className="pokemons">
                                     {
-                                    this.props.pokemons.map(pokemon =>
+                                    this.props.pokemons.filter(pt => pt.pokemonTeamId === this.props.team.id)
+                                    .map(pokemon =>
                                     <PokemonCard key={`pokemon-${pokemon.id}`}
                                         pokemon={pokemon}
                                         history={this.props.history}
+                                        
                                     />
                                 )}
                                 </article>
