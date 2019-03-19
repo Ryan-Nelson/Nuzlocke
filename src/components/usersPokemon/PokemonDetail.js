@@ -8,8 +8,8 @@ export default class PokemonDetail extends Component {
             user clicked on by looking at the `this.props.animals`
             collection that was passed down from ApplicationViews
         */
-        const pokemon = this.props.pokemons.find(p =>
-            p.id === parseInt(this.props.match.params.pokemonId))
+        const pokemon = this.props.pokemons.find(pokemon =>
+            pokemon.id === parseInt(this.props.match.params.pokemonsId))
              || {id:404, name:"404", nickName: "Dog not found"}
     
         return (
