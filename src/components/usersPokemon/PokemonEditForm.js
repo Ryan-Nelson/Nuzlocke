@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import PokemonManager from "../../modules/TeamManager"
+import PokemonManager from "../../modules/PokemonManager"
 
 export default class PokemonEditForm extends Component {
     // Set initial state
@@ -40,12 +40,12 @@ export default class PokemonEditForm extends Component {
         };
 
         this.props.updatePokemon(editedPokemon)
-            .then(() => this.props.history.push("/pokemon"))
+            .then(() => this.props.history.push("/pokemonList"))
     }
   
 
     componentDidMount() {
-      PokemonManager.get(this.props.match.params.id)
+      PokemonManager.get(this.props.match.params.pokemonsId)
       .then(pokemon => {
         this.setState({
           pokemonName: pokemon.name,

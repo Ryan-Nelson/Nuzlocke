@@ -11,7 +11,7 @@ export default class PokemonList extends Component {
         <button type="button"
             className="btn btn-success"
             onClick={() => {
-                this.props.history.push("/teams/new")
+                this.props.history.push("/newPokemon/new")
             }
             }>
             Make New pokemon

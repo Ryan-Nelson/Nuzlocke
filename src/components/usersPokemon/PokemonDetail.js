@@ -30,7 +30,7 @@ export default class PokemonDetail extends Component {
                         <button
                             onClick={() =>
                                 this.props.deletePokemon(pokemon.id)
-                                    .then(() => this.props.history.push("/"))
+                                    .then(() => this.props.history.push("/pokemons"))
                             }
                             className="card-link">Delete Your Pokemon</button>
                     </div>

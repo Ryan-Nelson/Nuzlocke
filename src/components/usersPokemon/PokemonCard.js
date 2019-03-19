@@ -5,7 +5,6 @@ export default class PokemonCard extends Component {
 
 
     render() {
-        
         return (
             <React.Fragment>
                 <div key={this.props.pokemon.id} className="card">
@@ -23,7 +22,7 @@ export default class PokemonCard extends Component {
                                 type="button"
                                 className="btn btn-success"
                                 onClick={() => {
-                                    this.props.history.push(`/pokemon/${this.props.pokemon.id}/edit`);
+                                    this.props.history.push(`/pokemons/${this.props.pokemon.id}/edit`);
                                 }}
                                 >
                                 Edit
@@ -39,7 +38,7 @@ export default class PokemonCard extends Component {
 
                         </h5>
                     </div>
-                    <Link className="nav-link" to={`/pokemon${this.props.pokemon.id}`}>Details</Link>
+                    <Link className="nav-link" to={`/pokemons${this.props.pokemon.id}`}>Details</Link>
                 </div>
 
             </React.Fragment>

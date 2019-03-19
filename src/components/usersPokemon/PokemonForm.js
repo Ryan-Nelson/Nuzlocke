@@ -28,9 +28,9 @@ export default class PokemonForm extends Component {
      */
   constructNewTeam = evt => {
     evt.preventDefault()
-    if (this.state.pokemonOnTheTeam === 7) {
-      window.alert("Pokemon Rules Say only 6 max at a time");
-    } else {
+    // if (this.state.pokemonOnTheTeam === 7) {
+    //   window.alert("Pokemon Rules Say only 6 max at a time");
+    // } else {
 
       const pokemon = {
         id: this.props.match.params.pokemonId,
@@ -50,7 +50,7 @@ export default class PokemonForm extends Component {
         .addPokemons(pokemon)
         .then(() => this.props.history.push("/pokemonList"));
     }
-  }
+  
   
 
   render() {
