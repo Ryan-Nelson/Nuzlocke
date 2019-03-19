@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TeamManager from "../../modules/TeamManager"
 
+
 export default class TeamForm extends Component {
   // Set initial state for teams
   state = {
@@ -37,18 +38,18 @@ export default class TeamForm extends Component {
         .then(() => this.props.history.push("/"));
     }
 
-    // checks to see if team list is display
-    componentDidMount() {
-      TeamManager.get(this.props.match.params.teamId)
-      .then(team => {
-        this.setState({
-          teamName: team.name,
-          teamWin: team.win,
-          teamLose: team.loes,
-          teamDiscretion: team.discretion
-        });
-      });
-    }
+    // // checks to see if team list is display
+    // componentDidMount() {
+    //   TeamManager.get(this.props.match.params.id)
+    //   .then(team => {
+    //     this.setState({
+    //       teamName: team.name,
+    //       teamWin: team.win,
+    //       teamLose: team.loes,
+    //       teamDiscretion: team.discretion
+    //     });
+    //   });
+    // }
 
   
 

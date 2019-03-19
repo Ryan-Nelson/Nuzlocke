@@ -14,13 +14,18 @@ import TeamForm from './usersTeam/TeamForm';
 import TeamEditForm from './usersTeam/TeamEditForm';
 import TeamCard from "./usersTeam/TeamCard";
 
+import PokemonInAPI from "../modules/PokemonAPI/PokemonInAPI"
+import pokemonInAPI from "../modules/PokemonAPI/PokemonInAPI";
+
 export default class ApplicationViews extends Component {
     state = {
         teams: [],
-        pokemons: []
+        pokemons: [],
+        pokemonOnTeam: []
 
     }
     aUserId = this.props.activeUserId()
+
 
     deleteThisTeam = (id) =>
         TeamManager.delete(id)
@@ -86,8 +91,6 @@ export default class ApplicationViews extends Component {
             PokemonManager.getAll()
             .then(pokemons => newState.pokemons = pokemons)
             .then(() => this.setState(newState))
-
-
     }
 
     render() {
@@ -99,6 +102,7 @@ export default class ApplicationViews extends Component {
                         deleteThisTeam={this.deleteThisTeam}
                         loadTeams={this.getAllTeamsAgain}
                         pokemons={this.state.pokemons}
+                        pokemonOnTeam={this.state.pokemonOnTeam}
 
                         {...props}
                     />
@@ -140,12 +144,15 @@ export default class ApplicationViews extends Component {
                 <Route path="/pokemons/:pokemonsId(\d+)/edit" render={props => {
                     return <PokemonEditForm
                         {...props}
-                        updatePokemon={this.updatePokemon} />
+                        updatePokemon={this.updatePokemon}
+                        teams={this.state.teams}
+                         />
                 }}
                 />
                 <Route path="/newPokemon" render={(props) => {
                     return <PokemonForm {...props}
                         addPokemons={this.addPokemons}
+                        teams={this.state.teams}
                     />
                 }} />
                 />
