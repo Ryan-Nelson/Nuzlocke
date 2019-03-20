@@ -32,7 +32,7 @@ export default class PokemonDetail extends Component {
                                 this.props.deletePokemon(pokemon.id)
                                     .then(() => this.props.history.push("/pokemons"))
                             }
-                            className="card-link">Delete Your Pokemon</button>
+                            className="btn btn-warning">Delete Your Pokemon</button>
                     </div>
                 </div>
             </section>

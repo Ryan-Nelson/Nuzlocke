@@ -109,10 +109,20 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/:teamsId(\d+)" render={(props) => {
                     return <TeamDetail
-                        {...props}
+
+                    teams={this.state.teams}
                         deleteThisTeam={this.deleteThisTeam}
+                        loadTeams={this.getAllTeamsAgain}
                         pokemons={this.state.pokemons}
-                        teams={this.state.teams} />
+                        pokemonOnTeam={this.state.pokemonOnTeam}
+
+                        {...props}
+                        // {...props}
+                        // deleteThisTeam={this.deleteThisTeam}
+                        // pokemons={this.state.pokemons}
+                        // teams={this.state.teams}
+                        // pokemonOnTeam={this.state.pokemonOnTeam}
+                         />
                         
                 }} />
                 <Route path="/:teamsId(\d+)/edit" render={props => {

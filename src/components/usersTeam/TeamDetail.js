@@ -12,7 +12,7 @@ export default class TeamDetail extends Component {
         */
         const team = this.props.teams.find(team =>
             team.id === parseInt(this.props.match.params.teamsId))
-            || { id: 404, name: "404", discretion: "Dog not found" }
+            || { id: 404, name: "404", discretion: "team not found" }
 
         return (
             <section className="team">
@@ -21,14 +21,23 @@ export default class TeamDetail extends Component {
                         <h4 className="card-title">
                             {team.name}
                             <article className="pokemons">
-                                {
+                                {/* {
                                     this.props.pokemons.map(pokemon =>
                                         <PokemonCard key={`pokemon-${pokemon.id}`}
                                             pokemon={pokemon}
                                             history={this.props.history}
                                         />
-                                    )}
-                                <div className="centerChildren">
+                                    )} */}
+                                                                        {/* {
+                                    this.props.pokemons.filter(pt => pt.pokemonTeamId === this.props.teamid)
+                                    .map(pokemon =>
+                                    <PokemonCard key={`pokemon-${pokemon.id}`}
+                                        pokemon={pokemon}
+                                        history={this.props.history}
+                                        
+                                    />
+                                )} */}
+                                {/* <div className="centerChildren">
                                     <button type="button"
                                         className="btn btn-success"
                                         onClick={() => {
@@ -37,11 +46,11 @@ export default class TeamDetail extends Component {
                                         }>
                                         Add New Pokemon
                                     </button>
-                                </div>
+                                </div> */}
                             </article>
 
                             <div>{team.win}</div>
-                            <div>{team.lose}</div>
+                            <div>{team.loes}</div>
                             <div>{team.discretion}</div>
                         </h4>
                         <button
@@ -49,7 +58,7 @@ export default class TeamDetail extends Component {
                                 this.props.deleteThisTeam(team.id)
                                     .then(() => this.props.history.push("/"))
                             }
-                            className="card-link">Delete Your Team</button>
+                            className="btn btn-warning">Delete Your Team</button>
                     </div>
                 </div>
             </section>

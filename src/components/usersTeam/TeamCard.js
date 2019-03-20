@@ -30,6 +30,16 @@ export default class TeamCard extends Component {
                             <div>{this.props.team.win}</div>
                             <div>{this.props.team.loes}</div>
                             <div>{this.props.team.discretion}</div>
+                            <div className="centerChildren">
+                                    <button type="button"
+                                        className="btn btn-success"
+                                        onClick={() => {
+                                            this.props.history.push("/newPokemon")
+                                        }
+                                        }>
+                                        Add New Pokemon
+                                    </button>
+                                </div>
                             <button
                                 type="button"
                                 className="btn btn-success"
