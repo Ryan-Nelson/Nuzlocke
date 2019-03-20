@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import TeamManager from "../../modules/TeamManager"
+import { Link } from "react-router-dom"
 
 export default class TeamEditForm extends Component {
     // Set initial state
@@ -25,7 +26,7 @@ export default class TeamEditForm extends Component {
           id: parseInt(this.props.match.params.teamsId),
           name: this.state.teamName,
           win: this.state.teamWin,
-          loes: this.state.teamLose,
+          lose: this.state.teamLose,
           discretion: this.state.teamDiscretion,
           userId: this.state.userId
         };
@@ -36,14 +37,13 @@ export default class TeamEditForm extends Component {
   
 
     componentDidMount() {
-      TeamManager.get(this.props.match.params.id)
+      TeamManager.get(this.props.match.params.teamsId)
       .then(team => {
         this.setState({
-
           teamName: team.name,
-          win: team.win,
-          loes: team.loes,
-          discretion: team.teamDiscretion,
+          teamWin: team.win,
+          teamLose: team.loes,
+          teamDiscretion: team.discretion,
           userId: team.userId
         });
       });
@@ -105,6 +105,7 @@ export default class TeamEditForm extends Component {
             >
               Submit
             </button>
+            <Link className="btn btn-danger" to={`/`}>cancel</Link>
           </form>
         </React.Fragment>
       );

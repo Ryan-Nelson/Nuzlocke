@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TeamManager from "../../modules/TeamManager"
+import { Link } from "react-router-dom"
 
 
 export default class TeamForm extends Component {
@@ -81,7 +82,7 @@ export default class TeamForm extends Component {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="teamLose">team loes</label>
+              <label htmlFor="teamLose">team lose</label>
               <input
                 type="text"
                 required
@@ -109,6 +110,8 @@ export default class TeamForm extends Component {
           >
             Submit
           </button>
+          <Link className="btn btn-danger" to={`/`}>cancel</Link>
+          
         </form>
       </React.Fragment>
     );

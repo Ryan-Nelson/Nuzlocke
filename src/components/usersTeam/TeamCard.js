@@ -28,7 +28,7 @@ export default class TeamCard extends Component {
                                 </article>
                                 
                             <div>{this.props.team.win}</div>
-                            <div>{this.props.team.lose}</div>
+                            <div>{this.props.team.loes}</div>
                             <div>{this.props.team.discretion}</div>
                             <button
                                 type="button"

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import PokemonManager from "../../modules/PokemonManager"
+import { Link } from "react-router-dom"
 
 export default class PokemonEditForm extends Component {
     // Set initial state
@@ -13,7 +14,7 @@ export default class PokemonEditForm extends Component {
       pokemonSpecialDefense: "",
       pokemonSpeed: "",
       userId: "",
-      okemonTeamId: ""
+      pokemonTeamId: ""
 
     }
 
@@ -180,6 +181,7 @@ export default class PokemonEditForm extends Component {
             >
               Submit
             </button>
+            <Link className="btn btn-danger" to={`/`}>cancel</Link>
           </form>
         </React.Fragment>
       );

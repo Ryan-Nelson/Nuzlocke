@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 
 export default class PokemonForm extends Component {
   // Set initial state
@@ -171,6 +172,7 @@ export default class PokemonForm extends Component {
           >
             Submit
           </button>
+          <Link className="btn btn-danger" to={`/`}>cancel</Link>
         </form>
       </React.Fragment>
     );
