@@ -28,7 +28,7 @@ export default class TeamForm extends Component {
         id: this.props.match.params.teamId,
         name: this.state.teamName,
         win: this.state.teamWin,
-        loes: this.state.teamLose,
+        lose: this.state.teamLose,
         discretion: this.state.teamDiscretion,
         userId:parseInt(sessionStorage.getItem('credentials'))
       }
@@ -46,7 +46,7 @@ export default class TeamForm extends Component {
     //     this.setState({
     //       teamName: team.name,
     //       teamWin: team.win,
-    //       teamLose: team.loes,
+    //       teamLose: team.lose,
     //       teamDiscretion: team.discretion
     //     });
     //   });

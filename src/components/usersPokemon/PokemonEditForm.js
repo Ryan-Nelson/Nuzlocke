@@ -29,7 +29,7 @@ export default class PokemonEditForm extends Component {
       evt.preventDefault()
 
         const editedPokemon = {
-          id: parseInt(this.props.match.params.pokemonId),
+          id: parseInt(this.props.match.params.pokemonsId),
           name: this.state.pokemonName,
           nickName: this.state.pokemonNickName,
           level: this.state.pokemonLevel,

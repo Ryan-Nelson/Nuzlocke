@@ -50,7 +50,7 @@ export default class TeamDetail extends Component {
                             </article>
 
                             <div>{team.win}</div>
-                            <div>{team.loes}</div>
+                            <div>{team.lose}</div>
                             <div>{team.discretion}</div>
                         </h4>
                         <button

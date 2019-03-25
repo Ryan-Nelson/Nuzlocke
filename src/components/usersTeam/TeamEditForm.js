@@ -42,7 +42,7 @@ export default class TeamEditForm extends Component {
         this.setState({
           teamName: team.name,
           teamWin: team.win,
-          teamLose: team.loes,
+          teamLose: team.lose,
           teamDiscretion: team.discretion,
           userId: team.userId
         });
@@ -77,7 +77,7 @@ export default class TeamEditForm extends Component {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="teamLose">team loes</label>
+              <label htmlFor="teamLose">team lose</label>
               <input
                 type="text"
                 required

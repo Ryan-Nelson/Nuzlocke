@@ -59,7 +59,7 @@ export default class Login extends Component {
   render() {
     return (
       <form className="loginForm">
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 className="h3 mb-3 font-weight-normal">Welcome to The Nuzlocke sign in here</h1>
         <label htmlFor="inputUsername">Username</label>
         <input
           onChange={this.handleFieldChange}
