@@ -19,7 +19,7 @@ export default class TeamList extends Component {
             </div>
             <article className="teams">
                 {
-                    this.props.teams.map(team =>
+                    this.props.teams.filter(team => team.userId === this.props.activeUser.id).map(team =>
                         <TeamCard key={`team-${team.id}`}
                             team={team}
                             pokemons={this.props.pokemons}

@@ -21,6 +21,7 @@ export default class ApplicationViews extends Component {
         pokemons: [],
         pokemonOnTeam: [],
         pokemonData: []
+
         
 
     }
@@ -93,11 +94,9 @@ export default class ApplicationViews extends Component {
 
         TeamManager.getAll()
             .then(teams => newState.teams = teams)
-            .then(() => this.setState(newState))
-        PokemonInAPI.getAllPokemon()
-            .then(pokemonData => newState.pokemonData = pokemonData)
-            .then(() => this.setState(newState))
-            PokemonManager.getAll()
+            .then(() => PokemonInAPI.getAllPokemon())
+            .then(pokemonData => newState.pokemonData = pokemonData.results)
+            .then(() => PokemonManager.getAll())
             .then(pokemons => newState.pokemons = pokemons)
             .then(() => this.setState(newState))
             
@@ -113,6 +112,7 @@ export default class ApplicationViews extends Component {
                         loadTeams={this.getAllTeamsAgain}
                         pokemons={this.state.pokemons}
                         pokemonOnTeam={this.state.pokemonOnTeam}
+                        activeUser={this.props.activeUser}
 
                         {...props}
                     />

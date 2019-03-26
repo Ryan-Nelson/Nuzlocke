@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
-import PokemonInAPI from "../../modules/PokemonAPI/PokemonInAPI"
+// import PokemonInAPI from "../../modules/PokemonAPIList/PokemonInAPI"
 // getAllPokemonInapi
 
 export default class PokemonForm extends Component {
@@ -62,6 +62,8 @@ export default class PokemonForm extends Component {
 
 
   render() {
+    console.log(this.props.pokemonData)
+    console.log(this.props.teams)
     return (
       <React.Fragment>
         <form className="teamForm">
@@ -74,9 +76,10 @@ export default class PokemonForm extends Component {
               onChange={this.handleFieldChange}
             >
               <option value="">Select a Team</option>
-              {this.props.pokemonData.map(pokemonAPI => (
-                <option key={pokemonAPI.id} id={pokemonAPI.id} value={pokemonAPI.id}>
-                  {pokemonAPI.name}
+              {this.props.pokemonData.map(pokemonAPIList => (
+                <option key={pokemonAPIList.id} id={pokemonAPIList.id} value={pokemonAPIList.id}>
+                  {pokemonAPIList.id}
+                  {/* {pokemonAPIList.id} */}
                 </option>
               ))}
             </select>
