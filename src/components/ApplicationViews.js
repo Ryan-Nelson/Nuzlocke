@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Route } from "react-router-dom"
 
+import PokemonInAPI from "../modules/PokemonAPI/PokemonInAPI"
 import PokemonManager from "../modules/PokemonManager"
 import PokemonCard from "./usersPokemon/PokemonCard"
 import PokemonDetail from "./usersPokemon/PokemonDetail"
@@ -14,18 +15,23 @@ import TeamForm from './usersTeam/TeamForm';
 import TeamEditForm from './usersTeam/TeamEditForm';
 import TeamCard from "./usersTeam/TeamCard";
 
-import PokemonInAPI from "../modules/PokemonAPI/PokemonInAPI"
-import pokemonInAPI from "../modules/PokemonAPI/PokemonInAPI";
-
 export default class ApplicationViews extends Component {
     state = {
         teams: [],
         pokemons: [],
-        pokemonOnTeam: []
+        pokemonOnTeam: [],
+        pokemonData: []
+        
 
     }
     aUserId = this.props.activeUserId()
 
+
+    // getAllPokemonInapi = () =>
+    // PokemonInAPI.getAllPokemon().then(pokemonData => this.setState({ pokemonData: pokemonData}))
+
+    // getAllPokemonAgain = () =>
+    // PokemonManager.getAll().then(pokemons => this.setState({ pokemons: pokemons }))
 
     deleteThisTeam = (id) =>
         TeamManager.delete(id)
@@ -88,9 +94,13 @@ export default class ApplicationViews extends Component {
         TeamManager.getAll()
             .then(teams => newState.teams = teams)
             .then(() => this.setState(newState))
+        PokemonInAPI.getAllPokemon()
+            .then(pokemonData => newState.pokemonData = pokemonData)
+            .then(() => this.setState(newState))
             PokemonManager.getAll()
             .then(pokemons => newState.pokemons = pokemons)
             .then(() => this.setState(newState))
+            
     }
 
     render() {
@@ -129,12 +139,15 @@ export default class ApplicationViews extends Component {
                     return <TeamEditForm
                         {...props}
                         updateTeam={this.updateTeam} />
+
                 }}
                 />
                 <Route path="/newTeam" render={(props) => {
                     return <TeamForm {...props}
                         addTeams={this.addTeams}
                         addPokemon={this.addPokemon}
+                        // PokemonInAPI={this.PokemonInAPI}
+
                     />
                 }} />
                 />
@@ -166,6 +179,7 @@ export default class ApplicationViews extends Component {
                     return <PokemonForm {...props}
                         addPokemons={this.addPokemons}
                         teams={this.state.teams}
+                        pokemonData={this.state.pokemonData}
                     />
                 }} />
                 />

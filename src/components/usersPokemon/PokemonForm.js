@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
+import PokemonInAPI from "../../modules/PokemonAPI/PokemonInAPI"
+// getAllPokemonInapi
 
 export default class PokemonForm extends Component {
   // Set initial state
@@ -14,7 +16,8 @@ export default class PokemonForm extends Component {
     pokemonSpecialDefense: "",
     pokemonSpeed: "",
     userId: "",
-    pokemonTeamId: ""
+    pokemonTeamId: "",
+    pokemonInDatabase: ""
   };
 
   // Update state whenever an input field is edited
@@ -45,7 +48,8 @@ export default class PokemonForm extends Component {
         specialDefense: this.state.pokemonSpecialDefense,
         speed: this.state.pokemonSpeed,
         userId:parseInt(sessionStorage.getItem('credentials')),
-        pokemonTeamId: parseInt(this.state.pokemonTeamId)
+        pokemonTeamId: parseInt(this.state.pokemonTeamId),
+        pokemonInDatabase: parseInt(this.state.pokemonInDatabase)
       }
       
 
@@ -55,12 +59,28 @@ export default class PokemonForm extends Component {
         .then(() => this.props.history.push("/pokemonList"));
     }
   
-  
+
 
   render() {
     return (
       <React.Fragment>
         <form className="teamForm">
+        <div className="form-group">
+            <label htmlFor="pokemonInDatabase">Assign a pokemon</label>
+            <select
+              defaultValue=""
+              name="pokemonInDatabase"
+              id="pokemonInDatabase"
+              onChange={this.handleFieldChange}
+            >
+              <option value="">Select a Team</option>
+              {this.props.pokemonData.map(pokemonAPI => (
+                <option key={pokemonAPI.id} id={pokemonAPI.id} value={pokemonAPI.id}>
+                  {pokemonAPI.name}
+                </option>
+              ))}
+            </select>
+          </div>
         <div className="form-group">
               <label htmlFor="pokemonName">Pokemon name</label>
               <input

@@ -12,7 +12,7 @@ import PokemonSettings from "./PokemonSettings";
 
 export default {
     getPokemon(id) {
-        return fetch(`${PokemonSettings.remoteURL}/pokemon/${id}`)
+        return fetch(`${PokemonSettings.remoteURL}/pokemon/${id}`).then(e => e.json());
     },
     getAllPokemon() {
         return fetch(`${PokemonSettings.remoteURL}/pokemon/?limit=964`).then(e => e.json());
