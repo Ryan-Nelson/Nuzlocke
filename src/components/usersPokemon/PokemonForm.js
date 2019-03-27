@@ -17,7 +17,9 @@ export default class PokemonForm extends Component {
     pokemonSpeed: "",
     userId: "",
     pokemonTeamId: "",
-    pokemonInDatabase: ""
+    pokemonInDatabase: "",
+    totalNumberOfpokemonOnTeam: ""
+    
   };
 
   // Update state whenever an input field is edited
@@ -33,9 +35,9 @@ export default class PokemonForm extends Component {
      */
   constructNewTeam = evt => {
     evt.preventDefault()
-    // if (this.state.pokemonOnTheTeam === 7) {
-    //   window.alert("Pokemon Rules Say only 6 max at a time");
-    // } else {
+    if (this.state.totalNumberOfpokemonOnTeam === 7) {
+      window.alert("Pokemon Rules Say only 6 max at a time");
+    } else {
 
       const pokemon = {
         id: this.props.match.params.pokemonId,
@@ -49,7 +51,8 @@ export default class PokemonForm extends Component {
         speed: this.state.pokemonSpeed,
         userId:parseInt(sessionStorage.getItem('credentials')),
         pokemonTeamId: parseInt(this.state.pokemonTeamId),
-        pokemonInDatabase: parseInt(this.state.pokemonInDatabase)
+        pokemonInDatabase: parseInt(this.state.pokemonInDatabase),
+        totalNumberOfpokemonOnTeam: parseInt(this.state.totalNumberOfpokemonOnTeam)
       }
       
 
@@ -58,12 +61,12 @@ export default class PokemonForm extends Component {
         .addPokemons(pokemon)
         .then(() => this.props.history.push("/pokemonList"));
     }
+  }
   
 
 
   render() {
-    console.log(this.props.pokemonData)
-    console.log(this.props.teams)
+
     return (
       <React.Fragment>
         <form className="teamForm">
@@ -78,8 +81,7 @@ export default class PokemonForm extends Component {
               <option value="">Select a Team</option>
               {this.props.pokemonData.map(pokemonAPIList => (
                 <option key={pokemonAPIList.id} id={pokemonAPIList.id} value={pokemonAPIList.id}>
-                  {pokemonAPIList.id}
-                  {/* {pokemonAPIList.id} */}
+                  {pokemonAPIList.name}
                 </option>
               ))}
             </select>
@@ -172,6 +174,16 @@ export default class PokemonForm extends Component {
                 value = {this.state.pokemonSpeed}
               />
             </div>
+            {/* <div className="form-group">
+              <input
+                type="hidden"
+                required
+                className="form-control"
+                onChange={this.handleFieldChange}
+                id="totalNumberOfpokemonOnTeam"
+                value = {(this.state.totalNumberOfpokemonOnTeam) + 1}
+              />
+            </div> */}
             <div className="form-group">
             <label htmlFor="pokemonTeamId">Assign to a Team</label>
             <select
@@ -200,4 +212,4 @@ export default class PokemonForm extends Component {
       </React.Fragment>
     );
   }
-}
+  }
