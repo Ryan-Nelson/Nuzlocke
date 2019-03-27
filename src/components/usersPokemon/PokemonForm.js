@@ -18,10 +18,41 @@ export default class PokemonForm extends Component {
     userId: "",
     pokemonTeamId: "",
     pokemonInDatabase: "",
-    totalNumberOfpokemonOnTeam: ""
+    totalNumberOfpokemonOnTeam: 1
     
   };
+//   class App extends React.Component {
+ 
+//     constructor(props){
+//         super(props);
+//         this.state={ count: 1}
+//     }
+  
+//    onclick(type){
+//        this.setState(prevState => {
+//           return {count: type == 'add' ? prevState.count + 1: prevState.count - 1}
+//        });
+//    }
+ 
+//     render() {
+//      return (
+//        <div>
+//          Count: {this.state.count}
+//          <br/>
+//          <div style={{marginTop: '100px'}}/>
+//          <input type='button' onClick={this.onclick.bind(this, 'add')} value='Inc'/>
+//          <input type='button' onClick={this.onclick.bind(this, 'sub')} value='Dec'/>
+//         </div>
+//       )
+//     }
+//  }
+ 
+//  ReactDOM.render(
+//    <App />,
+//    document.getElementById('container')
+//  );
 
+  
   // Update state whenever an input field is edited
   handleFieldChange = evt => {
     const stateToChange = {};
@@ -37,6 +68,8 @@ export default class PokemonForm extends Component {
     evt.preventDefault()
     if (this.state.totalNumberOfpokemonOnTeam === 7) {
       window.alert("Pokemon Rules Say only 6 max at a time");
+    // } else if (this.state.totalNumberOfpokemonOnTeam === null){
+    //   (this.state.totalNumberOfpokemonOnTeam = 0)
     } else {
 
       const pokemon = {
@@ -174,16 +207,16 @@ export default class PokemonForm extends Component {
                 value = {this.state.pokemonSpeed}
               />
             </div>
-            {/* <div className="form-group">
+            <div className="form-group">
               <input
                 type="hidden"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
                 id="totalNumberOfpokemonOnTeam"
-                value = {(this.state.totalNumberOfpokemonOnTeam) + 1}
+                value = {(this.state.totalNumberOfpokemonOnTeam)}
               />
-            </div> */}
+            </div>
             <div className="form-group">
             <label htmlFor="pokemonTeamId">Assign to a Team</label>
             <select

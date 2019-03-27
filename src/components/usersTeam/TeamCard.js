@@ -4,8 +4,24 @@ import PokemonCard from '../usersPokemon/PokemonCard';
 
 export default class TeamCard extends Component {
 
-    
 
+    constructor(props) {
+        super(props);
+        this.state = {totalNumberOfpokemonOnTeam: this.props.pokemons.filter(pt => pt.pokemonTeamId === this.props.team.id)}
+    }
+
+    onclick(type) {
+        this.setState(prevState => {
+            return { totalNumberOfpokemonOnTeam: type === 'add' ? prevState.totalNumberOfpokemonOnTeam + 1 : prevState.totalNumberOfpokemonOnTeam - 1 }
+        });
+    }
+    // <div>
+    //          Count: {this.state.count}
+    //          <br/>
+    //          <div style={{marginTop: '100px'}}/>
+    //          <input type='button' onClick={this.onclick.bind(this, 'add')} value='Inc'/>
+    //          <input type='button' onClick={this.onclick.bind(this, 'sub')} value='Dec'/>
+    //         </div>
 
     render() {
 
@@ -15,31 +31,37 @@ export default class TeamCard extends Component {
                     <div className="card-body">
                         <h5 className="card-title">
                             <div>{this.props.team.name}</div>
-                                <article className="pokemons">
-                                    {
-                                    this.props.pokemons.filter(pt => pt.pokemonTeamId === this.props.team.id)
-                                    .map(pokemon =>
-                                    <PokemonCard key={`pokemon-${pokemon.id}`}
-                                        pokemon={pokemon}
-                                        history={this.props.history}
-                                        
-                                    />
-                                )}
-                                </article>
-                                
+                            <article className="pokemons">
+                                {
+                                    // this.props.pokemons.filter(pt => pt.pokemonTeamId === this.props.team.id)
+
+                                        this.state.totalNumberOfpokemonOnTeam.map(pokemon =>
+                                            <PokemonCard key={`pokemon-${pokemon.id}`}
+                                                pokemon={pokemon}
+                                                history={this.props.history}
+
+                                            />
+                                        )}
+                            </article>
+
                             <div>{this.props.team.win}</div>
                             <div>{this.props.team.lose}</div>
                             <div>{this.props.team.discretion}</div>
                             <div className="centerChildren">
-                                    <button type="button"
-                                        className="btn btn-success"
-                                        onClick={() => {
+                                <button type="button"
+                                    className="btn btn-success"
+                                    onClick={() => {
+                                        if (this.state.totalNumberOfpokemonOnTeam.length >= 6) {
+                                            window.alert("Pokemon Rules Say only 6 max at a time");
+                                        } else {
+                                            // onClick = this.onclick.bind(this.state.totalNumberOfpokemonOnTeam, 'add');
                                             this.props.history.push("/newPokemon")
                                         }
-                                        }>
-                                        Add New Pokemon
+                                    }
+                                    }>
+                                    Add New Pokemon
                                     </button>
-                                </div>
+                            </div>
                             <button
                                 type="button"
                                 className="btn btn-success"
