@@ -10,19 +10,6 @@ export default class TeamCard extends Component {
         this.state = {totalNumberOfpokemonOnTeam: this.props.pokemons.filter(pt => pt.pokemonTeamId === this.props.team.id)}
     }
 
-    onclick(type) {
-        this.setState(prevState => {
-            return { totalNumberOfpokemonOnTeam: type === 'add' ? prevState.totalNumberOfpokemonOnTeam + 1 : prevState.totalNumberOfpokemonOnTeam - 1 }
-        });
-    }
-    // <div>
-    //          Count: {this.state.count}
-    //          <br/>
-    //          <div style={{marginTop: '100px'}}/>
-    //          <input type='button' onClick={this.onclick.bind(this, 'add')} value='Inc'/>
-    //          <input type='button' onClick={this.onclick.bind(this, 'sub')} value='Dec'/>
-    //         </div>
-
     render() {
 
         return (

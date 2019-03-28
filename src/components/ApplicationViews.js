@@ -22,46 +22,21 @@ export default class ApplicationViews extends Component {
         pokemonOnTeam: [],
         pokemonData: []
 
-        
+
 
     }
     aUserId = this.props.activeUserId()
 
-// class App extends React.Component {
- 
-//    constructor(props){
-//        super(props);
-//        this.state={ count: 1}
-//    }
- 
-//   onclick(type){
-//       this.setState(prevState => {
-//          return {count: type == 'add' ? prevState.count + 1: prevState.count - 1}
-//       });
-//   }
-
-//    render() {
-//     return (
-//       <div>
-//         Count: {this.state.count}
-//         <br/>
-//         <div style={{marginTop: '100px'}}/>
-//         <input type='button' onClick={this.onclick.bind(this, 'add')} value='Inc'/>
-//         <input type='button' onClick={this.onclick.bind(this, 'sub')} value='Dec'/>
-//        </div>
-//      )
-//    }
-// }
-
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('container')
-// );
     // getAllPokemonInapi = () =>
     // PokemonInAPI.getAllPokemon().then(pokemonData => this.setState({ pokemonData: pokemonData}))
 
     // getAllPokemonAgain = () =>
     // PokemonManager.getAll().then(pokemons => this.setState({ pokemons: pokemons }))
+
+    getPokemon() {
+        return fetch(`${this.state.pokemons.pokemonInDatabase}`).then(e => e.json());
+    }
+
 
     deleteThisTeam = (id) =>
         TeamManager.delete(id)
@@ -128,7 +103,7 @@ export default class ApplicationViews extends Component {
             .then(() => PokemonManager.getAll())
             .then(pokemons => newState.pokemons = pokemons)
             .then(() => this.setState(newState))
-            
+
     }
 
     render() {
@@ -149,20 +124,20 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/:teamsId(\d+)" render={(props) => {
                     return <TeamDetail
 
-                    teams={this.state.teams}
+                        teams={this.state.teams}
                         deleteThisTeam={this.deleteThisTeam}
                         loadTeams={this.getAllTeamsAgain}
                         pokemons={this.state.pokemons}
                         pokemonOnTeam={this.state.pokemonOnTeam}
 
                         {...props}
-                        // {...props}
-                        // deleteThisTeam={this.deleteThisTeam}
-                        // pokemons={this.state.pokemons}
-                        // teams={this.state.teams}
-                        // pokemonOnTeam={this.state.pokemonOnTeam}
-                         />
-                        
+                    // {...props}
+                    // deleteThisTeam={this.deleteThisTeam}
+                    // pokemons={this.state.pokemons}
+                    // teams={this.state.teams}
+                    // pokemonOnTeam={this.state.pokemonOnTeam}
+                    />
+
                 }} />
                 <Route path="/:teamsId(\d+)/edit" render={props => {
                     return <TeamEditForm
@@ -175,13 +150,14 @@ export default class ApplicationViews extends Component {
                     return <TeamForm {...props}
                         addTeams={this.addTeams}
                         addPokemon={this.addPokemon}
-                        // PokemonInAPI={this.PokemonInAPI}
+                    // PokemonInAPI={this.PokemonInAPI}
 
                     />
                 }} />
-                />
+
                 <Route path="/pokemonList" render={(props) => {
                     return <PokemonList pokemons={this.state.pokemons}
+                        getPokemon={this.getPokemon}
                         deletePokemon={this.deletePokemon}
                         loadPokemon={this.getAllPokemonsAgain}
                         {...props}
@@ -190,18 +166,20 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/pokemons/:pokemonsId(\d+)" render={(props) => {
                     return <PokemonDetail
                         {...props}
+                        getPokemon={this.getPokemon}
                         deletePokemon={this.deletePokemon}
-                        pokemons={this.state.pokemons} 
-                        
-                        />
-                        
+                        pokemons={this.state.pokemons}
+
+                    />
+
                 }} />
                 <Route path="/pokemons/:pokemonsId(\d+)/edit" render={props => {
                     return <PokemonEditForm
                         {...props}
                         updatePokemon={this.updatePokemon}
                         teams={this.state.teams}
-                         />
+                        activeUser={this.props.activeUser}
+                    />
                 }}
                 />
                 <Route path="/newPokemon" render={(props) => {
@@ -209,9 +187,10 @@ export default class ApplicationViews extends Component {
                         addPokemons={this.addPokemons}
                         teams={this.state.teams}
                         pokemonData={this.state.pokemonData}
+                        activeUser={this.props.activeUser}
                     />
                 }} />
-                />
+
 
             </React.Fragment>
         )

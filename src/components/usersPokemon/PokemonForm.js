@@ -17,40 +17,9 @@ export default class PokemonForm extends Component {
     pokemonSpeed: "",
     userId: "",
     pokemonTeamId: "",
-    pokemonInDatabase: "",
-    totalNumberOfpokemonOnTeam: 1
+    pokemonInDatabase: ""
     
   };
-//   class App extends React.Component {
- 
-//     constructor(props){
-//         super(props);
-//         this.state={ count: 1}
-//     }
-  
-//    onclick(type){
-//        this.setState(prevState => {
-//           return {count: type == 'add' ? prevState.count + 1: prevState.count - 1}
-//        });
-//    }
- 
-//     render() {
-//      return (
-//        <div>
-//          Count: {this.state.count}
-//          <br/>
-//          <div style={{marginTop: '100px'}}/>
-//          <input type='button' onClick={this.onclick.bind(this, 'add')} value='Inc'/>
-//          <input type='button' onClick={this.onclick.bind(this, 'sub')} value='Dec'/>
-//         </div>
-//       )
-//     }
-//  }
- 
-//  ReactDOM.render(
-//    <App />,
-//    document.getElementById('container')
-//  );
 
   
   // Update state whenever an input field is edited
@@ -66,8 +35,10 @@ export default class PokemonForm extends Component {
      */
   constructNewTeam = evt => {
     evt.preventDefault()
-    if (this.state.totalNumberOfpokemonOnTeam === 7) {
-      window.alert("Pokemon Rules Say only 6 max at a time");
+    if (this.state.pokemonInDatabase === "") {
+      window.alert("Plese seclect your pokemon");
+    }else if (this.state.pokemonTeamId === ""){
+      window.alert("Plese seclect your Team");
     // } else if (this.state.totalNumberOfpokemonOnTeam === null){
     //   (this.state.totalNumberOfpokemonOnTeam = 0)
     } else {
@@ -84,22 +55,22 @@ export default class PokemonForm extends Component {
         speed: this.state.pokemonSpeed,
         userId:parseInt(sessionStorage.getItem('credentials')),
         pokemonTeamId: parseInt(this.state.pokemonTeamId),
-        pokemonInDatabase: parseInt(this.state.pokemonInDatabase),
-        totalNumberOfpokemonOnTeam: parseInt(this.state.totalNumberOfpokemonOnTeam)
+        pokemonInDatabase: this.state.pokemonInDatabase
       }
       
-
+      console.log("new pokemon",pokemon)
       // Create the animal and redirect user to animal list
       this.props
         .addPokemons(pokemon)
-        .then(() => this.props.history.push("/pokemonList"));
+        .then(() => this.props.history.push("/"));
     }
   }
   
 
 
-  render() {
 
+  render() {
+    console.log(this.props.pokemonData)
     return (
       <React.Fragment>
         <form className="teamForm">
@@ -113,7 +84,7 @@ export default class PokemonForm extends Component {
             >
               <option value="">Select a Team</option>
               {this.props.pokemonData.map(pokemonAPIList => (
-                <option key={pokemonAPIList.id} id={pokemonAPIList.id} value={pokemonAPIList.id}>
+                <option key={pokemonAPIList.index} value={pokemonAPIList.url}>
                   {pokemonAPIList.name}
                 </option>
               ))}
@@ -208,16 +179,6 @@ export default class PokemonForm extends Component {
               />
             </div>
             <div className="form-group">
-              <input
-                type="hidden"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="totalNumberOfpokemonOnTeam"
-                value = {(this.state.totalNumberOfpokemonOnTeam)}
-              />
-            </div>
-            <div className="form-group">
             <label htmlFor="pokemonTeamId">Assign to a Team</label>
             <select
               defaultValue=""
@@ -226,7 +187,7 @@ export default class PokemonForm extends Component {
               onChange={this.handleFieldChange}
             >
               <option value="">Select a Team</option>
-              {this.props.teams.map(team => (
+              {this.props.teams.filter(team => team.userId === this.props.activeUser.id).map(team => (
                 <option key={team.id} id={team.id} value={team.id}>
                   {team.name}
                 </option>

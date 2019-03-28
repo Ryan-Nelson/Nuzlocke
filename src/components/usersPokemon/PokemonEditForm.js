@@ -43,7 +43,7 @@ export default class PokemonEditForm extends Component {
         };
 
         this.props.updatePokemon(editedPokemon)
-            .then(() => this.props.history.push("/pokemonList"))
+            .then(() => this.props.history.push("/"))
     }
   
 
@@ -167,7 +167,7 @@ export default class PokemonEditForm extends Component {
               onChange={this.handleFieldChange}
             >
               <option value="">Select an Team</option>
-              {this.props.teams.map(team => (
+              {this.props.teams.filter(team => team.userId === this.props.activeUser.id).map(team => (
                 <option key={team.id} id={team.id} value={team.id}>
                   {team.name}
                 </option>
