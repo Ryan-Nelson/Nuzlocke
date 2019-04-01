@@ -6,6 +6,8 @@ export default class TeamList extends Component {
     render() {
 
         return (
+
+            
             <React.Fragment>
             <div className="centerChildren">
             {/* new team button */}
@@ -17,6 +19,7 @@ export default class TeamList extends Component {
                     Make New Team
                 </button>
             </div>
+            
             <article className="teams">
                 {
                     this.props.teams.filter(team => team.userId === this.props.activeUser.id).map(team =>
@@ -30,12 +33,6 @@ export default class TeamList extends Component {
                     )
                 }
             </article>
-            <div className="centerChildren">
-            {/* button to refresh the teams */}
-                <button onClick={ () => this.props.loadTeams() }>
-                    Reload Teams
-                </button>
-            </div>
             </React.Fragment>
         )
     }

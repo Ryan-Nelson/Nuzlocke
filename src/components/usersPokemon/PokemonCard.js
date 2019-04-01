@@ -1,44 +1,36 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import { Card, Button, CardImg, CardTitle, CardText, CardGroup, CardSubtitle, CardBody, Container, Row, Col } from 'reactstrap';
 
 export default class PokemonCard extends Component {
 
 
     render() {
         return (
+            
             <React.Fragment>
                 <div key={this.props.pokemon.id} className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">
-                            <div>{this.props.pokemon.name}</div>
-                            <div>{this.props.pokemon.nickName}</div>
-                            <div>{this.props.pokemon.level}</div>
-                            <div>{this.props.pokemon.attack}</div>
-                            <div>{this.props.pokemon.defence}</div>
-                            <div>{this.props.pokemon.specialAttack}</div>
-                            <div>{this.props.pokemon.specialDefense}</div>
-                            <div>{this.props.pokemon.speed}</div>
-                            <button
-                                type="button"
-                                className="btn btn-success"
-                                onClick={() => {
-                                    this.props.history.push(`/pokemons/${this.props.pokemon.id}/edit`);
-                                }}
-                                >
-                                Edit
-                            </button>
-
-                            {
-                                (this.props.hasOwnProperty("deletePokemon"))
-                                    ? <button
-                                        onClick={() => this.props.deletePokemon(this.props.pokemon.id)}
-                                        className="card-link">Delete</button>
-                                    : null
-                            }
-
-                        </h5>
-                    </div>
-                    <Link className="nav-link" to={`/pokemons/${this.props.pokemon.id}`}>Details</Link>
+                <CardGroup>
+                {/* <Col md={2}> */}
+      <Card>
+        <CardBody>
+          <CardTitle>Name {this.props.pokemon.name}</CardTitle>
+          <CardSubtitle>Level {this.props.pokemon.level}</CardSubtitle>
+          <CardText></CardText>
+          <Button
+                type="button"
+                className="btn btn-success"
+                onClick={() => {
+                    this.props.history.push(`/pokemons/${this.props.pokemon.id}/edit`);
+                }}
+                >
+                Edit
+          </Button>
+          <Link className="btn btn-danger" to={`/pokemons/${this.props.pokemon.id}`}>Details</Link>
+        </CardBody>
+      </Card>
+      {/* </Col> */}
+    </CardGroup>
                 </div>
 
             </React.Fragment>

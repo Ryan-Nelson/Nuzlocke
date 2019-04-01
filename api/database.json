@@ -147,62 +147,6 @@
       "pokemonInDatabase": null,
       "totalNumberOfpokemonOnTeam": 1,
       "id": 13
-    },
-    {
-      "name": "gggggggggggg",
-      "nickName": "hhhhhhhh",
-      "level": "hhhhhhhhhhhhhhh",
-      "attack": "111111111111",
-      "defence": "1111111111111",
-      "specialAttack": "11111111111111111",
-      "specialDefense": "1111111111111111",
-      "speed": "111111111111111111111",
-      "userId": 1,
-      "pokemonTeamId": 5,
-      "pokemonInDatabase": null,
-      "id": 14
-    },
-    {
-      "name": "aaaaaaaaaaaaa",
-      "nickName": "aaaaaaaaaaaaaaaaaaa",
-      "level": "aaaaaaaaaaaaaaaaaa",
-      "attack": "aaaaaaaaaaaaaaaaaaaaa",
-      "defence": "aaaaaaaaaaaaa",
-      "specialAttack": "aaaaaaaaaaaaaaaa",
-      "specialDefense": "aaaaaaaaaaaaaaa",
-      "speed": "aaaaaaaaaaaaaaaaaaaa",
-      "userId": 1,
-      "pokemonTeamId": 5,
-      "pokemonInDatabase": null,
-      "id": 15
-    },
-    {
-      "name": "ffffffffffff",
-      "nickName": "fffffffffffff",
-      "level": "fffffffffffff",
-      "attack": "ffffffffffff",
-      "defence": "fffffffffffff",
-      "specialAttack": "ffffffffffffffffff",
-      "specialDefense": "fffffffffffffffff",
-      "speed": "fffffffffffffffffffffffffff",
-      "userId": 1,
-      "pokemonTeamId": 5,
-      "pokemonInDatabase": null,
-      "id": 16
-    },
-    {
-      "name": "gggggggggggg",
-      "nickName": "a",
-      "level": "a",
-      "attack": "a",
-      "defence": "a",
-      "specialAttack": "a",
-      "specialDefense": "a",
-      "speed": "a",
-      "userId": 1,
-      "pokemonTeamId": 5,
-      "pokemonInDatabase": "https://pokeapi.co/api/v2/pokemon/4/",
-      "id": 17
     }
   ],
   "teams": [
