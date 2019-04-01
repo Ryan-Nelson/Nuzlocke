@@ -105,7 +105,6 @@ export default class ApplicationViews extends Component {
             .then(() => this.setState(newState))
 
     }
-
     render() {
         console.log(this.props.activeUser)
         return (

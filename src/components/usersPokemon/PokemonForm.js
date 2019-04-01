@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
+import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 // import PokemonInAPI from "../../modules/PokemonAPIList/PokemonInAPI"
 // getAllPokemonInapi
 
@@ -18,10 +19,10 @@ export default class PokemonForm extends Component {
     userId: "",
     pokemonTeamId: "",
     pokemonInDatabase: ""
-    
+
   };
 
-  
+
   // Update state whenever an input field is edited
   handleFieldChange = evt => {
     const stateToChange = {};
@@ -37,10 +38,10 @@ export default class PokemonForm extends Component {
     evt.preventDefault()
     if (this.state.pokemonInDatabase === "") {
       window.alert("Plese seclect your pokemon");
-    }else if (this.state.pokemonTeamId === ""){
+    } else if (this.state.pokemonTeamId === "") {
       window.alert("Plese seclect your Team");
-    // } else if (this.state.totalNumberOfpokemonOnTeam === null){
-    //   (this.state.totalNumberOfpokemonOnTeam = 0)
+      // } else if (this.state.totalNumberOfpokemonOnTeam === null){
+      //   (this.state.totalNumberOfpokemonOnTeam = 0)
     } else {
 
       const pokemon = {
@@ -53,19 +54,19 @@ export default class PokemonForm extends Component {
         specialAttack: this.state.pokemonSpecialAttack,
         specialDefense: this.state.pokemonSpecialDefense,
         speed: this.state.pokemonSpeed,
-        userId:parseInt(sessionStorage.getItem('credentials')),
+        userId: parseInt(sessionStorage.getItem('credentials')),
         pokemonTeamId: parseInt(this.state.pokemonTeamId),
         pokemonInDatabase: this.state.pokemonInDatabase
       }
-      
-      console.log("new pokemon",pokemon)
+
+      console.log("new pokemon", pokemon)
       // Create the animal and redirect user to animal list
       this.props
         .addPokemons(pokemon)
         .then(() => this.props.history.push("/"));
     }
   }
-  
+
 
 
 
@@ -73,10 +74,12 @@ export default class PokemonForm extends Component {
     console.log(this.props.pokemonData)
     return (
       <React.Fragment>
-        <form className="teamForm">
-        <div className="form-group">
-            <label htmlFor="pokemonInDatabase">Assign a pokemon</label>
-            <select
+        <Form>
+          <Col md={2}>
+          <FormGroup>
+            <Label for="pokemonInDatabase">Assign a pokemon</Label>
+            <Input
+            type="select"
               defaultValue=""
               name="pokemonInDatabase"
               id="pokemonInDatabase"
@@ -88,103 +91,124 @@ export default class PokemonForm extends Component {
                   {pokemonAPIList.name}
                 </option>
               ))}
-            </select>
-          </div>
-        <div className="form-group">
-              <label htmlFor="pokemonName">Pokemon name</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonName"
-                value = {this.state.pokemonName}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pokemonNickName">Pokemon NickName</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonNickName"
-                value = {this.state.pokemonNickName}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pokemonLevel">Pokemon Level</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonLevel"
-                value = {this.state.pokemonLevel}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pokemonAttack">Pokemon Attack</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonAttack"
-                value = {this.state.pokemonAttack}
-              />
-            </div>
-        <div className="form-group">
-              <label htmlFor="pokemonDefence">Pokemon defence</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonDefence"
-                value = {this.state.pokemonDefence}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pokemonSpecialAttack">Pokemon Special Attack</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonSpecialAttack"
-                value = {this.state.pokemonSpecialAttack}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pokemonSpecialDefense">Pokemon Special Defense</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonSpecialDefense"
-                value = {this.state.pokemonSpecialDefense}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pokemonSpeed">Pokemon Speed</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="pokemonSpeed"
-                value = {this.state.pokemonSpeed}
-              />
-            </div>
-            <div className="form-group">
-            <label htmlFor="pokemonTeamId">Assign to a Team</label>
-            <select
-              defaultValue=""
-              name="Team"
-              id="pokemonTeamId"
+            </Input>
+          </FormGroup>
+          </Col>
+          <Row form>
+            <Col md={2}>
+              <FormGroup>
+                <Label for="pokemonName">Pokemon name</Label>
+                <Input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="pokemonName"
+                  value={this.state.pokemonName} />
+              </FormGroup>
+            </Col>
+            <Col md={2}>
+              <FormGroup>
+                <Label for="pokemonNickName">Pokemon NickName</Label>
+                <Input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="pokemonNickName"
+                  value={this.state.pokemonNickName} />
+              </FormGroup>
+            </Col>
+          </Row>
+          <FormGroup>
+          <Col md={3}>
+            <Label for="pokemonLevel">Pokemon Level</Label>
+            <Input
+              type="text"
+              required
+              className="form-control"
               onChange={this.handleFieldChange}
+              id="pokemonLevel"
+              value={this.state.pokemonLevel} />
+              </Col>
+          </FormGroup>
+          <Row form>
+            <Col md={3}>
+              <FormGroup>
+                <Label for="pokemonAttack">Pokemon Attack</Label>
+                <Input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="pokemonAttack"
+                  value={this.state.pokemonAttack}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3}>
+              <FormGroup>
+                <Label for="pokemonDefence">Pokemon defence</Label>
+                <Input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="pokemonDefence"
+                  value={this.state.pokemonDefence}
+                />
+              </FormGroup>
+            </Col>
+            </Row>
+            <Row>
+            <Col md={3}>
+              <FormGroup>
+                <Label for="pokemonSpecialAttack">Pokemon Special Attack</Label>
+                <Input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="pokemonSpecialAttack"
+                  value={this.state.pokemonSpecialAttack} />
+              </FormGroup>
+            </Col>
+            <Col md={3}>
+              <FormGroup>
+                <Label for="pokemonSpecialDefense">Pokemon Special Defense</Label>
+                <Input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="pokemonSpecialDefense"
+                  value={this.state.pokemonSpecialDefense}
+                />
+              </FormGroup>
+            </Col>
+            </Row>
+            <Col md={3}>
+              <FormGroup>
+                <Label for="pokemonSpeed">Pokemon Speed</Label>
+                <Input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="pokemonSpeed"
+                  value={this.state.pokemonSpeed}
+                />
+              </FormGroup>
+            </Col>
+          <Col md={2}>
+          <FormGroup>
+            <Label for="pokemonTeamId">Assign to a Team</Label>
+            <Input
+            type="select"
+            defaultValue=""
+            name="Team"
+            id="pokemonTeamId"
+            onChange={this.handleFieldChange}
             >
               <option value="">Select a Team</option>
               {this.props.teams.filter(team => team.userId === this.props.activeUser.id).map(team => (
@@ -192,9 +216,12 @@ export default class PokemonForm extends Component {
                   {team.name}
                 </option>
               ))}
-            </select>
-          </div>
-          <button
+            </Input>
+          </FormGroup>
+          </Col>
+          <Row>
+            
+            <button
             type="submit"
             onClick={this.constructNewTeam}
             className="btn btn-primary"
@@ -202,8 +229,11 @@ export default class PokemonForm extends Component {
             Submit
           </button>
           <Link className="btn btn-danger" to={`/`}>cancel</Link>
-        </form>
-      </React.Fragment>
+          </Row>
+          </Form>
+        </React.Fragment>
+
     );
   }
-  }
+}
+
