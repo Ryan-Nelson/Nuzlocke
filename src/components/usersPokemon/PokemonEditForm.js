@@ -219,7 +219,7 @@ export default class PokemonEditForm extends Component {
                   
                   <button
                   type="submit"
-                  onClick={this.constructNewTeam}
+                  onClick={this.updateExistingPokemon}
                   className="btn btn-primary"
                 >
                   Submit
