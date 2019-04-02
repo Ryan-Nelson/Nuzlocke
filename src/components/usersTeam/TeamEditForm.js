@@ -113,7 +113,7 @@ export default class TeamEditForm extends Component {
           </Row>
           <button
             type="submit"
-            onClick={this.constructNewTeam}
+            onClick={this.updateExistingTeam}
             className="btn btn-primary"
           >
             Submit
