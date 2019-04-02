@@ -18,8 +18,7 @@ export default class TeamDetail extends Component {
             <section className="team">
                 <div key={team.id} className="card">
                     <div className="card-body">
-                        <h4 className="card-title">
-                            {team.name}
+                        <h4 className="card-title">Name: {team.name}
                             <article className="pokemons">
                                 {/* {
                                     this.props.pokemons.map(pokemon =>
@@ -49,9 +48,9 @@ export default class TeamDetail extends Component {
                                 </div> */}
                             </article>
 
-                            <div>{team.win}</div>
-                            <div>{team.lose}</div>
-                            <div>{team.discretion}</div>
+                            <div>Wins: {team.win}</div>
+                            <div>Lose: {team.lose}</div>
+                            <div>Discretion: {team.discretion}</div>
                         </h4>
                         <button
                             onClick={() =>

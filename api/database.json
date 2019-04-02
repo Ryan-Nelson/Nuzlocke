@@ -117,6 +117,20 @@
       "pokemonTeamId": 1,
       "pokemonInDatabase": null,
       "id": 11
+    },
+    {
+      "name": "a",
+      "nickName": "a",
+      "level": "a",
+      "attack": "a",
+      "defence": "a",
+      "specialAttack": "a",
+      "specialDefense": "a",
+      "speed": "a",
+      "userId": 1,
+      "pokemonTeamId": 5,
+      "pokemonInDatabase": "https://pokeapi.co/api/v2/pokemon/2/",
+      "id": 12
     }
   ],
   "teams": [
@@ -143,11 +157,19 @@
       "discretion": "fdjf;ladsfjsk",
       "userId": 2,
       "id": 4
+    },
+    {
+      "id": 5,
+      "name": "gfffffffffff",
+      "win": "a",
+      "lose": "a",
+      "discretion": "a",
+      "userId": 1
     }
   ],
   "users": [
     {
-      "username": "ff",
+      "username": "Steve",
       "password": "ff",
       "id": 1
     },
