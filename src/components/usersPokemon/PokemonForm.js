@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import BattleArceus from "./BattleArceus.mp3"
+import CaughtAPokemon from "./BattleArceus.mp3"
+import Sound from "@platoai/react-sound"
 // import PokemonInAPI from "../../modules/PokemonAPIList/PokemonInAPI"
 // getAllPokemonInapi
 
@@ -29,7 +32,6 @@ export default class PokemonForm extends Component {
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
   }
-
   /*
         Local method for validation, creating animal object, and
         invoking the function reference passed from parent component
@@ -58,7 +60,7 @@ export default class PokemonForm extends Component {
         pokemonTeamId: parseInt(this.state.pokemonTeamId),
         pokemonInDatabase: this.state.pokemonInDatabase
       }
-
+      
       console.log("new pokemon", pokemon)
       // Create the animal and redirect user to animal list
       this.props
@@ -71,9 +73,24 @@ export default class PokemonForm extends Component {
 
 
   render() {
-    console.log(this.props.pokemonData)
+    // console.log(this.props.pokemonData)
     return (
+      
       <React.Fragment>
+                               <Sound
+   url={BattleArceus}
+   playStatus={Sound.status.PLAYING}
+   onLoading={this.handleSongLoading}
+   onPlaying={this.handleSongPlaying}
+   onFinishedPlaying={this.handleSongFinishedPlaying}
+   />
+                               <Sound
+   url={CaughtAPokemon}
+   playStatus={Sound.status.PLAYING}
+   onLoading={this.handleSongLoading}
+   onPlaying={this.handleSongPlaying}
+   onFinishedPlaying={this.handleSongFinishedPlaying}
+   />
         <Form>
           <Col md={2}>
           <FormGroup>
@@ -221,13 +238,14 @@ export default class PokemonForm extends Component {
           </Col>
           <Row>
             
-            <button
+            <Button
             type="submit"
             onClick={this.constructNewTeam}
             className="btn btn-primary"
           >
             Submit
-          </button>
+          </Button>
+
           <Link className="btn btn-danger" to={`/`}>cancel</Link>
           </Row>
           </Form>

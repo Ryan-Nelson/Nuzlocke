@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import TeamManager from "../../modules/TeamManager"
 import { Link } from "react-router-dom"
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import ChampionShirona from "./ChampionShirona.mp3"
+import Sound from "@platoai/react-sound"
 
 export default class TeamForm extends Component {
   // Set initial state for teams
@@ -59,6 +60,13 @@ export default class TeamForm extends Component {
     return (
       <React.Fragment>
         {/* the teams form */}
+        <Sound
+   url={ChampionShirona}
+   playStatus={Sound.status.PLAYING}
+   onLoading={this.handleSongLoading}
+   onPlaying={this.handleSongPlaying}
+   onFinishedPlaying={this.handleSongFinishedPlaying}
+   />
         <Form>
           <Row form>
             <Col md={2}>

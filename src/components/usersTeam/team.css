@@ -1,0 +1,29 @@
+body {
+    background-color: goldenrod;
+    /* background-image: url("Pokeball.PNG");
+    cursor: url("Pokeball.PNG"); */
+   }
+   .custom-cur {
+    cursor: url(./Pokeball.PNG);
+  }
+
+   /* .custom-cur {
+    cursor: url('./Pokeball.PNG');
+  }
+  
+  /* With a .cur fallback */
+  /* .custom-cur {
+    cursor: url('./Pokeball.PNG'),
+    url('./Pokeball.PNG');
+  } */
+  
+  /* With a custom hotspot */
+  /* .custom-cur {
+    cursor: url('./Pokeball.PNG');
+  }
+   */
+  /* With a non-custom fallback: */
+  /* .custom-cur {
+    cursor: url('./Pokeball.PNG'),
+    move;
+  }  */

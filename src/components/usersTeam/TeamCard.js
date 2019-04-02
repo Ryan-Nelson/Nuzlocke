@@ -22,8 +22,7 @@ export default class TeamCard extends Component {
 
       <Card>
         <CardBody>
-          <CardTitle>Name {this.props.team.name}</CardTitle>
-          <CardSubtitle>Level {this.props.team.level}</CardSubtitle>
+          <CardTitle>Team {this.props.team.name}</CardTitle>
           <CardText>
               <Row>
           {/* <Col md={6}> */}

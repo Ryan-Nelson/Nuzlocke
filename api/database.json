@@ -119,21 +119,6 @@
       "id": 11
     },
     {
-      "name": "f",
-      "nickName": "f",
-      "level": "f",
-      "attack": "f",
-      "defence": "f",
-      "specialAttack": "f",
-      "specialDefense": "f",
-      "speed": "f",
-      "userId": 1,
-      "pokemonTeamId": 1,
-      "pokemonInDatabase": null,
-      "totalNumberOfpokemonOnTeam": 1,
-      "id": 12
-    },
-    {
       "name": "d",
       "nickName": "d",
       "level": "d",

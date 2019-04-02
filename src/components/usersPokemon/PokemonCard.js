@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import { Card, Button, CardImg, CardTitle, CardText, CardGroup, CardSubtitle, CardBody, Container, Row, Col } from 'reactstrap';
-
+// import BelieveInMe from "./Believe-In-Me.mp3"
+// import Sound from "@platoai/react-sound"
 export default class PokemonCard extends Component {
 
 
@@ -9,6 +10,13 @@ export default class PokemonCard extends Component {
         return (
             
             <React.Fragment>
+                               {/* <Sound
+   url={BelieveInMe}
+   playStatus={Sound.status.PLAYING}
+   onLoading={this.handleSongLoading}
+   onPlaying={this.handleSongPlaying}
+   onFinishedPlaying={this.handleSongFinishedPlaying}
+   /> */}
                 <div key={this.props.pokemon.id} className="card">
                 <CardGroup>
                 {/* <Col md={2}> */}
