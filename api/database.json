@@ -119,19 +119,31 @@
       "id": 11
     },
     {
-      "name": "d",
-      "nickName": "d",
-      "level": "d",
-      "attack": "d",
-      "defence": "d",
-      "specialAttack": "d",
-      "specialDefense": "d",
-      "speed": "d",
+      "name": "fffffffff",
+      "nickName": "ffffffffffff",
+      "level": "ffffffffffffffff",
+      "attack": "ffffffffffffff",
+      "defence": "fffffffffffff",
+      "specialAttack": "ffffffffffff",
+      "specialDefense": "fffffffffffffff",
+      "speed": "fffffffffffffff",
       "userId": 1,
       "pokemonTeamId": 5,
-      "pokemonInDatabase": null,
-      "totalNumberOfpokemonOnTeam": 1,
-      "id": 13
+      "pokemonInDatabase": "https://pokeapi.co/api/v2/pokemon/2/",
+      "id": 12
+    },
+    {
+      "id": 13,
+      "name": "h",
+      "nickName": "hhhhhhhhhhhhhhhhhhhhh",
+      "level": "hhhhhhhhhhhhhh",
+      "attack": "hhhhhhhhhhh",
+      "defence": "hhhhhhhhhhhh",
+      "specialAttack": "ggggggggggggggggggggg",
+      "specialDefense": "hhhhhhhhhhhhhhh",
+      "speed": "hhhhhhhhhhhhhhh",
+      "userId": "",
+      "pokemonTeamId": null
     }
   ],
   "teams": [
@@ -160,10 +172,10 @@
       "id": 4
     },
     {
-      "name": "r`r`r`1",
-      "win": "r",
-      "lose": "rq",
-      "discretion": "r",
+      "name": "fffffffff",
+      "win": "fffffffffffffff",
+      "lose": "ffffffffffffffffff",
+      "discretion": "fffffffffffff",
       "userId": 1,
       "id": 5
     }
