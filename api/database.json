@@ -117,33 +117,6 @@
       "pokemonTeamId": 1,
       "pokemonInDatabase": null,
       "id": 11
-    },
-    {
-      "name": "fffffffff",
-      "nickName": "ffffffffffff",
-      "level": "ffffffffffffffff",
-      "attack": "ffffffffffffff",
-      "defence": "fffffffffffff",
-      "specialAttack": "ffffffffffff",
-      "specialDefense": "fffffffffffffff",
-      "speed": "fffffffffffffff",
-      "userId": 1,
-      "pokemonTeamId": 5,
-      "pokemonInDatabase": "https://pokeapi.co/api/v2/pokemon/2/",
-      "id": 12
-    },
-    {
-      "id": 13,
-      "name": "h",
-      "nickName": "hhhhhhhhhhhhhhhhhhhhh",
-      "level": "hhhhhhhhhhhhhh",
-      "attack": "hhhhhhhhhhh",
-      "defence": "hhhhhhhhhhhh",
-      "specialAttack": "ggggggggggggggggggggg",
-      "specialDefense": "hhhhhhhhhhhhhhh",
-      "speed": "hhhhhhhhhhhhhhh",
-      "userId": "",
-      "pokemonTeamId": null
     }
   ],
   "teams": [
@@ -170,14 +143,6 @@
       "discretion": "fdjf;ladsfjsk",
       "userId": 2,
       "id": 4
-    },
-    {
-      "name": "fffffffff",
-      "win": "fffffffffffffff",
-      "lose": "ffffffffffffffffff",
-      "discretion": "fffffffffffff",
-      "userId": 1,
-      "id": 5
     }
   ],
   "users": [
