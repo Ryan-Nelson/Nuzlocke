@@ -22,6 +22,7 @@ export default {
         }).then(data => data.json())
     },
     updatePokemon(editedPokemon) {
+      console.log(editedPokemon)
         return fetch(`${Settings.remoteURL}/pokemons/${editedPokemon.id}`, {
           method: "PUT",
           headers: {

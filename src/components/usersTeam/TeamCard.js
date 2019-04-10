@@ -52,6 +52,7 @@ export default class TeamCard extends Component {
                                 }>
                                 Add New Pokemon
           </Button>
+          
           <Button
                                 type="button"
                                 className="btn btn-success"

@@ -53,6 +53,7 @@
       "pokemonTeamId": 1
     },
     {
+      "id": 6,
       "name": "blaziken",
       "nickName": "fire kick",
       "level": "100",
@@ -62,8 +63,7 @@
       "specialDefense": "444",
       "speed": "233",
       "userId": 1,
-      "pokemonTeamId": 1,
-      "id": 6
+      "pokemonTeamId": 5
     },
     {
       "name": "magearna gx",
@@ -119,18 +119,30 @@
       "id": 11
     },
     {
-      "name": "a",
-      "nickName": "a",
-      "level": "a",
-      "attack": "a",
-      "defence": "a",
-      "specialAttack": "a",
-      "specialDefense": "a",
-      "speed": "a",
+      "id": 12,
+      "name": "arceus",
+      "nickName": "king",
+      "level": "100",
+      "attack": "100",
+      "defence": "100",
+      "specialAttack": "100",
+      "specialDefense": "100",
+      "speed": "100",
       "userId": 1,
-      "pokemonTeamId": 5,
-      "pokemonInDatabase": "https://pokeapi.co/api/v2/pokemon/2/",
-      "id": 12
+      "pokemonTeamId": "5"
+    },
+    {
+      "id": 13,
+      "name": "f",
+      "nickName": "f",
+      "level": "f",
+      "attack": "f",
+      "defence": "f",
+      "specialAttack": "f",
+      "specialDefense": "f",
+      "speed": "ff",
+      "userId": 1,
+      "pokemonTeamId": "5"
     }
   ],
   "teams": [
@@ -159,12 +171,12 @@
       "id": 4
     },
     {
-      "id": 5,
-      "name": "gfffffffffff",
-      "win": "a",
-      "lose": "a",
-      "discretion": "a",
-      "userId": 1
+      "name": "Golden Rod",
+      "win": "0",
+      "lose": "0",
+      "discretion": "New Team",
+      "userId": 1,
+      "id": 5
     }
   ],
   "users": [

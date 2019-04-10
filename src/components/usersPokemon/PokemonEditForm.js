@@ -28,7 +28,7 @@ export default class PokemonEditForm extends Component {
 
     updateExistingPokemon = evt => {
       evt.preventDefault()
-
+      console.log(this.props.match.params)
         const editedPokemon = {
           id: parseInt(this.props.match.params.pokemonsId),
           name: this.state.pokemonName,
@@ -40,7 +40,8 @@ export default class PokemonEditForm extends Component {
           specialDefense: this.state.pokemonSpecialDefense,
           speed: this.state.pokemonSpeed,
           userId: this.state.userId,
-          pokemonTeamId: parseInt(this.props.match.params.pokemonTeamId)
+          pokemonTeamId: parseInt(this.state.pokemonTeamId)
+        
         };
 
         this.props.updatePokemon(editedPokemon)
@@ -51,6 +52,7 @@ export default class PokemonEditForm extends Component {
     componentDidMount() {
       PokemonManager.get(this.props.match.params.pokemonsId)
       .then(pokemon => {
+        console.log(pokemon)
         this.setState({
           pokemonName: pokemon.name,
           pokemonNickName: pokemon.nickName,
@@ -60,16 +62,17 @@ export default class PokemonEditForm extends Component {
           pokemonSpecialAttack: pokemon.specialAttack,
           pokemonSpecialDefense: pokemon.specialDefense,
           pokemonSpeed: pokemon.speed,
-          pokemonTeamId: pokemon.pokemonTeamId
+          pokemonTeamId: pokemon.pokemonTeamId,
+          userId: pokemon.userId
         });
       });
     }
 
-
+    
     render() {
-
       return (
         <React.Fragment>
+        {/* {console.log(pokemon.userId)} */}
               <Form>
                 {/* <Col md={2}>
                 <FormGroup>
@@ -179,6 +182,19 @@ export default class PokemonEditForm extends Component {
                         onChange={this.handleFieldChange}
                         id="pokemonSpecialDefense"
                         value={this.state.pokemonSpecialDefense}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={3}>
+                    <FormGroup>
+                      <Label for="pokemonTeamId">Pokemon Special Defense</Label>
+                      <Input
+                        type="text"
+                        required
+                        className="form-control"
+                        onChange={this.handleFieldChange}
+                        id="pokemonTeamId"
+                        value={this.state.pokemonTeamId}
                       />
                     </FormGroup>
                   </Col>

@@ -80,9 +80,10 @@ export default class ApplicationViews extends Component {
         return PokemonManager.updatePokemon(pokemon)
             .then(() => PokemonManager.getAll())
             .then(pokemons =>
-                this.setState({
+                {console.log(pokemons, "");this.setState({
                     pokemons: pokemons
-                })
+                    
+                })}
             )
     }
 
@@ -173,7 +174,8 @@ export default class ApplicationViews extends Component {
 
                 }} />
                 <Route path="/pokemons/:pokemonsId(\d+)/edit" render={props => {
-                    return <PokemonEditForm
+                   console.log(props)
+                   return <PokemonEditForm
                         {...props}
                         updatePokemon={this.updatePokemon}
                         teams={this.state.teams}
