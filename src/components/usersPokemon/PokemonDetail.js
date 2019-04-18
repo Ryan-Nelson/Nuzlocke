@@ -4,13 +4,10 @@ import { Card, Button, CardImg, CardTitle, CardText, CardGroup, CardSubtitle, Ca
 
 export default class PokemonDetail extends Component {
     render() {
-        /*
-            Using the route parameter, find the animal that the
-            user clicked on by looking at the `this.props.animals`
-            collection that was passed down from ApplicationViews
-        */
+        // check's to see if pokemon is in the database
         const pokemon = this.props.pokemons.find(pokemon =>
             pokemon.id === parseInt(this.props.match.params.pokemonsId))
+            //if not display
              || {id:404, name:"404", nickName: "Sorry Pokemon Not Found"}
     
         return (
